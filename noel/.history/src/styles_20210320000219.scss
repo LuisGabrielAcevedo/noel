@@ -1,0 +1,23 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden !important;
+}
+
+@font-face {
+  font-family: "MyriadProRegular";
+  src: url("assets/fonts/MyriadProRegular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "NexaBold";
+  src: url("assets/fonts/NexaBold.otf") format("opentype");
+}
+
+// @font-face {
+//   font-family: "HelveticaNeue";
+//   src: url("assets/fonts/HelveticaNeue.ttc") format("truetype");
+// }
