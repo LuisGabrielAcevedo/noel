@@ -177,14 +177,20 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #131F44;
+  background-color: #131F44;
   height: 70px;
   border-radius: 30px;
   padding: 0 80px;
   margin: 0 10px;
   margin-top: 10px;
+  @include mobile() {
+    padding: 0 20px;
+  }
   &__logo {
     height: 50px;
+    @include mobile() {
+      height: 40px;
+    }
   }
   &__menu {
     height: 30px;

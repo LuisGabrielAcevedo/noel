@@ -36,9 +36,9 @@ export default {
   },
   computed: {
       background() {
-          let value = 'linear-gradient(to bottom, #FFD800, #CF8301)'
+          let value = '#0051AA'
           if (this.type === 'primary') {
-            value = 'linear-gradient(to bottom, #FFD800, #CF8301)'
+            value = '#0051AA'
           } else if(this.type === 'secondary') {
             value = 'linear-gradient(to bottom, #E31552, #901036)'
           } else if(this.type === 'tertiary') {
@@ -47,9 +47,9 @@ export default {
           return value
       },
       color() {
-          let value = 'black'
+          let value = 'white'
           if (this.type === 'primary') {
-            value = 'primary'
+            value = 'white'
           } else if(this.type === 'secondary') {
             value = 'white'
           } else if(this.type === 'tertiary') {
@@ -81,9 +81,9 @@ export default {
   cursor: pointer;
   padding-top: 2px;
   &__text {
-    font-family: BebasNeueBold;
-    font-size: 16px;
-    line-height: 16px;
+    font-family: NexaBold;
+    font-size: 14px;
+    line-height: 14px;
   }
 }
 </style>

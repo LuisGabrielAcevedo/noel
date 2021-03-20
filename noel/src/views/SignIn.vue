@@ -1,23 +1,23 @@
 <template>
   <div class="signIn">
     <div class="signIn__image-content">
-      <span>Bienvenido a</span>
+      <span class="signIn__title" v-if="!mobile">Bienvenido a</span>
       <img class="signIn__image" src="@/assets/web/Logo_inicio_txt.png">
     </div>
     <div class="signIn__content">
       <div class="signIn__section1">
         <span class="signIn__section1-text">
-          Ingresa al portal para que puedas participar
+          Ingresa al portal para que puedas participar.
         </span>
-        <Input
-          field="idn"
-          @handle-input="setValue($event)"
-          placeholder="Número de cédula"
-          :onlyNumbers="true"
-          :error="error"
-          maxlength="10"
-        />
-        <div>
+          <Input
+            field="idn"
+            @handle-input="setValue($event)"
+            placeholder="Número de cédula"
+            :onlyNumbers="true"
+            :error="error"
+            maxlength="10"
+          />
+        <div class="signIn__section1-button">
            <Button text="Ingresar" type="primary" @handle-click="signIn()"/>
         </div>
       </div>
@@ -28,7 +28,9 @@
         <span class="signIn__section2-text">
           Para participar, completa tu registro.
         </span>
-        <Button text="Registrarme" type="secondary" @handle-click="register()"/>
+        <div class="signIn__section2-button"> 
+          <Button text="Registrarme" type="primary" @handle-click="register()"/>
+        </div>
       </div>
     </div>
   </div>
@@ -127,27 +129,71 @@ export default {
     justify-content: center;
   }
   &__image {
-    height: 300px;
+    height: 280px;
+    @include mobile() {
+      height: 230px;
+    }
   }
   &__content {
     display: flex;
     align-items: center;
     justify-content: space-between;
     box-shadow: 0px 3px 6px #00000029;
-    background-color: rgba(250,250,250,0.4);
-    width: 700px;
+    background-color: rgba(250,250,250,0.2);
     margin: 0 auto;
+    padding: 18px 20px;
+    border-radius: 20px;
+    @include mobile() {
+      flex-direction: column;
+      margin: 10px;
+    }
   }
   &__section1 {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
+  &__section1-text {
+    font-family: NexaBold;
+    color: #253E87;
+    line-height: 16px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  &__section1-button {
+    margin-top: -20px;
+  }
   &__section2 {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-
+  &__section2-text {
+    font-family: NexaBold;
+    color: #253E87;
+    line-height: 16px;
+    font-size: 16px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  &__title {
+    font-family: NexaBold;
+    font-size: 36px;
+    margin-right: 60px;
+    color: #131F45;
+  }
+  &__line {
+    margin: 0 40px;
+    height: 80px;
+    border-right: 3px solid #131F45;
+    @include mobile() {
+      margin: 20px 0;
+      height: 10px;
+      width: 140px;
+      border-right: none;
+      border-top: 3px solid #131F45;
+    }
+  }
 }
 </style>
