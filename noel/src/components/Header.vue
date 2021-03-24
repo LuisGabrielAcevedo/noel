@@ -1,23 +1,25 @@
 <template>
   <div class="header">
-    <img class="header__menu" src="@/assets/mobile/btn_menu.png" v-if="mobile">
-    <img class="header__logo" src="@/assets/web/Logos_marcas_cabezote.png">
+    <img
+      class="header__menu"
+      src="@/assets/mobile/btn_menu.png"
+      v-if="mobile"
+    />
+    <img class="header__logo" src="@/assets/web/Logos_marcas_cabezote.png" />
     <div class="header__web-routes" v-if="!this.mobile">
       <div v-for="(route, k) in webRoutes" :key="k">
-        <div 
-          v-if="route.isVisible()" 
+        <div
+          v-if="route.isVisible()"
           class="header__web-route"
           :class="{
-            'header--web-route-selected':
-            route.path === selectedRoute
+            'header--web-route-selected': route.path === selectedRoute,
           }"
         >
           <span
             class="header__web-route-text"
             @click="click(route)"
             :class="{
-              'header--web-route-text-selected':
-              route.path === selectedRoute
+              'header--web-route-text-selected': route.path === selectedRoute,
             }"
             >{{ route.name }}
           </span>
@@ -33,16 +35,16 @@
     >
     </v-navigation-drawer>
   </div>
-</template> 
+</template>
 
 <script>
 // import {ClearSession} from '../api'
 export default {
-  name: 'Header',
+  name: "Header",
   data: () => ({
     drawer: false,
     routes: [],
-    selectedRoute: ""
+    selectedRoute: "",
   }),
   watch: {
     "$route.path": {
@@ -50,60 +52,67 @@ export default {
         this.selectedRoute = path;
       },
       deep: true,
-      immediate: true
+      immediate: true,
     },
     mobile(old) {
-      if (!old) this.drawer = false
-    }
+      if (!old) this.drawer = false;
+    },
   },
   mounted() {
     this.routes = [
       {
         name: "INICIAR SESIÓN",
         path: "/ingresar",
-        isVisible: () => !this.token
+        isVisible: () => !this.token,
       },
       {
         name: "REGISTRARME",
         path: "/registrarse",
-        isVisible: () => !this.token && this.mobile
+        isVisible: () => !this.token && this.mobile,
       },
       {
         name: "INGRESAR CÓDIGO",
         path: "/ingresar-codigo",
-        isVisible: () => this.token
+        isVisible: () => this.token,
       },
       {
         name: "¿CÓMO PARTICIPAR?",
         path: "/como-particiar",
-        isVisible: () => true
+        isVisible: () => true,
       },
       {
         name: "PREMIOS",
         path: "/premios",
-        isVisible: () => true
+        isVisible: () => true,
+      },
+      {
+        name: "MIS CODIGOS",
+        path: "/my-codes",
+        isVisible: () => true,
       },
       {
         name: "TÉRMINOS Y CONDICIONES",
         path: "/terminos-y-condiciones",
         isVisible: () => !this.token,
-        clickAction: () => this.$store.dispatch("setTermsAndConditions", true)
+        clickAction: () => this.$store.dispatch("setTermsAndConditions", true),
       },
       {
         name: "MIS CÓDIGOS",
         path: "/mi-cuenta",
-        isVisible: () => this.token
+        isVisible: () => this.token,
       },
       {
         name: "CONTÁCTENOS",
         path: "/contactenos",
-        isVisible: () => this.token && this.mobile
+        isVisible: () => this.token && this.mobile,
       },
       {
         name: "CERRAR SESIÓN",
-        clickAction: () => {this.logout()},
-        isVisible: () => this.token
-      }
+        clickAction: () => {
+          this.logout();
+        },
+        isVisible: () => this.token,
+      },
     ];
   },
   computed: {
@@ -114,15 +123,15 @@ export default {
       return this.$store.getters.token;
     },
     webRoutes() {
-      return this.routes.filter(r => r.isVisible())
-    }, 
+      return this.routes.filter(r => r.isVisible());
+    },
     user() {
       return this.$store.getters.user;
     },
     show() {
       const idn = this.user.identification || this.user.idn;
-      return this.selectedRoute !== '/editar-cuenta' && this.user.name && idn
-    }
+      return this.selectedRoute !== "/editar-cuenta" && this.user.name && idn;
+    },
   },
   methods: {
     logout() {
@@ -134,7 +143,7 @@ export default {
       this.goTo("/ingresar");
     },
     logoClick() {
-      this.token ? this.goTo("/ingresar-codigo"): this.goTo("/ingresar");
+      this.token ? this.goTo("/ingresar-codigo") : this.goTo("/ingresar");
     },
     toggle() {
       this.drawer = !this.drawer;
@@ -150,25 +159,16 @@ export default {
       }
     },
     gotoYoutube() {
-      window.open(
-        `https://yupi.com.co/`,
-        "_blank"
-      );
+      window.open(`https://yupi.com.co/`, "_blank");
     },
     gotoInstagram() {
-      window.open(
-        `https://yupi.com.co/`,
-        "_blank"
-      );
+      window.open(`https://yupi.com.co/`, "_blank");
     },
     gotoFacebook() {
-      window.open(
-        `https://yupi.com.co/`,
-        "_blank"
-      );
-    }
-  }
-}
+      window.open(`https://yupi.com.co/`, "_blank");
+    },
+  },
+};
 </script>
 
 <style lang="scss">
@@ -177,7 +177,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #131F44;
+  background-color: #131f44;
   height: 70px;
   border-radius: 30px;
   padding: 0 80px;
@@ -203,7 +203,7 @@ export default {
   }
   &__web-route {
     cursor: pointer;
-    border-radius:25px;
+    border-radius: 25px;
   }
   &--web-route-selected {
     background-color: white;
@@ -215,22 +215,18 @@ export default {
     padding: 0 10px;
   }
   &--web-route-text-selected {
-    color: #253E87;
+    color: #253e87;
   }
 }
 
 .drawer {
   &__web-route {
-
   }
   &--web-route-selected {
-    
   }
   &__web-route-text {
-
   }
   &--web-route-text-selected {
-
   }
 }
 </style>

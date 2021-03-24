@@ -1,11 +1,12 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
+import Vue from "vue";
+import VueRouter from "vue-router";
 import Awards from "../views/Awards.vue";
 import EnterCode from "../views/EnterCode.vue";
 import HowToTakePart from "../views/HowToTakePart.vue";
 import MyAccount from "../views/MyAccount.vue";
 import SignIn from "../views/SignIn.vue";
 import SignUp from "../views/SignUp.vue";
+import MyCodes from "../views/MyCodes/MyCodes.vue";
 import store from "@/store";
 
 const authGuard = async (to, from, next) => {
@@ -18,7 +19,7 @@ const authGuardNot = async (to, from, next) => {
   !isAuthenticated ? next() : next("/ingresar-codigo");
 };
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
@@ -56,6 +57,11 @@ const routes = [
     component: Awards,
   },
   {
+    path: "/my-codes",
+    name: "myCodes",
+    component: MyCodes,
+  },
+  {
     path: "*",
     redirect: "/ingresar",
   },
@@ -66,9 +72,9 @@ const routes = [
 ];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;

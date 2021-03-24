@@ -1,20 +1,20 @@
 <template>
   <div class="howToTakePart">
-    <div class="howToTakePart__title">
+    <div class="title-views-global">
       <img
         v-if="!mobile"
-        class="howToTakePart__image-title"
+        class="title-views-global__web"
         src="@/assets/web/Titulo_como_participar.png"
         alt="Como participar titulo"
       />
       <img
         v-if="mobile"
-        class="howToTakePart__image-title-mobile"
+        class="title-views-global__mobile"
         src="@/assets/mobile/Titulo_como_participar_respons.png"
         alt="Como participar"
       />
     </div>
-    <div class="howToTakePart__content">
+    <div class="box-wrapper-views-global">
       <div class="howToTakePart__contentBox">
         <h2 class="howToTakePart__contentBox-title">
           ¡Participar es muy fácil! Solo sigue estos sencillos pasos:
@@ -73,19 +73,6 @@ export default {
   &__title {
     width: 100%;
     text-align: center;
-  }
-
-  &__content {
-    flex: 1;
-    flex-basis: 70%;
-    border-radius: 26px;
-    box-shadow: 0px 3px 6px #00000029;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 5px 60px;
-
-    @include mobile() {
-      padding: 5px 0px;
-    }
   }
 
   &__contentBox {

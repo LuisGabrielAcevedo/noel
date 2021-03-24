@@ -1,21 +1,21 @@
 <template>
   <div class="awards">
-    <div class="awards__title">
+    <div class="title-views-global">
       <img
         v-if="!mobile"
-        class="awards__image-title"
+        class="title-views-global__web"
         src="@/assets/web/Titulo_premios.png"
         alt="Titulo premios"
       />
       <img
         v-if="mobile"
-        class="awards__image-title-mobile"
+        class="title-views-global__mobile"
         src="@/assets/mobile/Titulo_premios_respons.png"
         alt="Titulo premios"
       />
     </div>
 
-    <div class="awards__content">
+    <div class="box-wrapper-views-global">
       <div class="awards__contentBox">
         <h2 class="awards__contentBox-title">
           ¡Estos son los premios que tenemos para ti!
@@ -121,19 +121,6 @@ export default {
     width: 100%;
     text-align: center;
     margin: 0 15px;
-  }
-
-  &__content {
-    flex: 1;
-    flex-basis: 70%;
-    border-radius: 26px;
-    box-shadow: 0px 3px 6px #00000029;
-    background: rgba(255, 255, 255, 0.1);
-    padding: 0px 60px;
-
-    @include mobile() {
-      padding: 0px 0px;
-    }
   }
 
   &__contentBox {
