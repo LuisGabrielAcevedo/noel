@@ -223,9 +223,11 @@ export default {
     }
     &__label {
         margin-left: 10px;
-        font-family: BebasNeue;
-        color: white;
+        font-family: NexaBold;
         margin-right: 10px;
+        font-size: 12px;
+        color: #253E87;
+        margin-bottom: 6px;
         @include mobile() {
           text-align: center;
         }
