@@ -135,6 +135,7 @@ export default {
     }
     &-title {
       font-size: 20px;
+      text-align: center;
       line-height: 16px;
       color: #253e87;
       font-family: "NexaBold";
