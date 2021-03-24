@@ -96,7 +96,10 @@ export default {
     Modal,
   },
   props: {
-    tableData: [],
+    tableData: {
+      type: Array,
+      default: () => []
+    }
   },
   computed: {
     mobile() {

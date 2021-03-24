@@ -55,7 +55,8 @@ export default {
   z-index: 10 !important;
   background-color: rgba(0, 0, 0, 0.7);
   &__content {
-    background-color: white;
+    background: linear-gradient(to bottom, #FFB000, #FFB000);
+    border: 3px solid #EC2C8D;
     box-shadow: 7px 7px 7px #00000059;
     border-radius: 25px;
     @include mobile() {

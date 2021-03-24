@@ -1,17 +1,17 @@
 <template>
   <modal :dialog="show" :permanent="false" @close="close()">
     <div slot="component" class="alert">
-      <!-- <div v-if="data &&data.showClose"  class="alert__close-container">
-         <img
-            @click="close()"
-            class="alert__close-image"
-            src="@/assets/web/btn_cerrar.png"
-          />
+      <div v-if="data &&data.showClose"  class="alert__close-container">
+        <img
+          @click="close()"
+          class="alert__close-image"
+          src="@/assets/web/btn_cerrar.png"
+        />
       </div>
       <img
         class="alert__image"
-        src="@/assets/web/logo_hinchas.png"
-      /> -->
+        src="@/assets/web/Logo_promo_que_nos_une_modales.png"
+      />
       <div class="alert__content" v-if="data">
         <span v-if="true" class="alert__title">{{ data.title }}</span>
         <span v-if="data.message" class="alert__message" v-html="data.message"></span>
@@ -101,9 +101,9 @@ export default {
     justify-content: center;
   }
   &__message {
-    font-family: "BebasNeue";
+    font-family: "NexaBold";
     font-size: 18px;
-    color: #E31552;
+    color: #253E87;
     text-align: center;
     text-align: center;
     @include mobile() {
@@ -112,9 +112,9 @@ export default {
   }
   &__title {
     margin-bottom: 10px;
-    font-family: "BebasNeue";
+    font-family: "NexaBold";
     text-align: center;
-    color: #E31552;
+    color: #253E87;
     font-size: 28px;
     @include mobile() {
       font-size: 22px;
@@ -127,12 +127,12 @@ export default {
     }
   }
   &__image {
-    height: 120px;
-    margin-top: -40px;
+    height: 220px;
+    margin-top: -100px;
     margin-bottom: 10px;
     @include mobile() {
-      height: 80px;
-      margin-top: -20px;
+      height: 160px;
+      margin-top: -80px;
     }
   }
   &__close-container {
@@ -140,12 +140,13 @@ export default {
     justify-content: flex-end;
     width: 100%;
     padding: 10px;
+    margin-top: -46px;
   }
   &__close-image {
     height: 30px;
     cursor: pointer;
     @include mobile() {
-      height: 20px;
+      height: 28px;
     }
   }
   &__info-image {

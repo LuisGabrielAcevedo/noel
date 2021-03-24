@@ -96,7 +96,7 @@ export default {
           buttonLabel: "Aceptar",
           type:'INFO',
           showClose: true,
-          message: "¡Ingresa un número de teléfono válido!.",
+          message: "¡Ingresa un número de cédula válido!.",
         });
       }
     },

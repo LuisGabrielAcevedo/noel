@@ -1,11 +1,7 @@
 <template>
   <div class="header">
-    <img
-      class="header__menu"
-      src="@/assets/mobile/btn_menu.png"
-      v-if="mobile"
-    />
-    <img class="header__logo" src="@/assets/web/Logos_marcas_cabezote.png" />
+    <img class="header__menu" src="@/assets/mobile/btn_menu.png" v-if="mobile">
+    <img class="header__logo" @click="logoClick()" src="@/assets/web/Logos_marcas_cabezote.png">
     <div class="header__web-routes" v-if="!this.mobile">
       <div v-for="(route, k) in webRoutes" :key="k">
         <div
@@ -177,7 +173,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: #131f44;
+  background: radial-gradient(#253E87, #131F44);
   height: 70px;
   border-radius: 30px;
   padding: 0 80px;
@@ -188,6 +184,7 @@ export default {
   }
   &__logo {
     height: 50px;
+    cursor: pointer;
     @include mobile() {
       height: 40px;
     }

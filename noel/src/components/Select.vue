@@ -155,21 +155,21 @@ export default {
   }
   &__label {
     margin-left: 10px;
-    font-family: BebasNeue;
-    color: white;
+    font-family: NexaBold;
     margin-right: 10px;
+    font-size: 12px;
+    color: #253E87;
+    margin-bottom: 6px;
     @include mobile() {
       text-align: center;
     }
   }
   &__placeholder{
     color: #BCBCBC;
-    font-family: BebasNeueBold;
+    font-family: MontserratItalic;
     font-size: 15px;
-    margin-top: 5px;
     @include mobile() {
       font-size: 14px;
-      margin-top: -2px;
     }
   }
   &__icon-content {
@@ -203,7 +203,7 @@ export default {
     font-size: 16px;
     color: black;
     padding: 3px 1px 1px 1px;
-    font-family: BebasNeueRegular;
+    font-family: MontserratItalic;
     @include mobile() {
       font-size: 14px;
     }
@@ -212,7 +212,7 @@ export default {
     background: #eee;
   }
   &__text {
-    font-family: BebasNeueRegular;
+    font-family: MontserratItalic;
     font-size: 18px;
     @include mobile() {
       font-size: 15px;

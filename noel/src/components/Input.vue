@@ -169,11 +169,8 @@ export default {
     margin-bottom: 10px;
     input::placeholder {
       color: #BCBCBC;
-      font-family: BebasNeueBold;
-      font-size: 15px;
-      @include mobile() {
-        font-size: 14px;
-      }
+      font-family: MontserratItalic;
+      font-size: 14px;
     }
     @include mobile() {
       width: 100% !important;
@@ -189,13 +186,12 @@ export default {
       width: 100%;
       height: 34px;
       border-radius: 18px;
-      font-size: 18px;
-      padding: 4px 10px;
+      font-size: 14px;
+      padding: 2px 10px;
       text-align: center;
-      font-family: BebasNeueRegular !important;
+      font-family: MontserratItalic !important;
       @include mobile() {
-        font-size: 15px;
-        padding-top: 8px;
+        font-size: 14px;
         height: 38px;
       }
     }
@@ -227,9 +223,11 @@ export default {
     }
     &__label {
         margin-left: 10px;
-        font-family: BebasNeue;
-        color: white;
+        font-family: NexaBold;
         margin-right: 10px;
+        font-size: 12px;
+        color: #253E87;
+        margin-bottom: 6px;
         @include mobile() {
           text-align: center;
         }

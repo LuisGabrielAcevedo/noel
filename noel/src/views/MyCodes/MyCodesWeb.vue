@@ -87,7 +87,10 @@ export default {
   mounted() {},
   components: {},
   props: {
-    tableData: [],
+    tableData: {
+      type: Array,
+      default: () => []
+    }
   },
   computed: {
     mobile() {
