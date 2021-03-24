@@ -38,11 +38,9 @@ export default {
       background() {
           let value = '#0051AA'
           if (this.type === 'primary') {
-            value = '#0051AA'
+            value = 'radial-gradient(#0079FF, #0051AA)'
           } else if(this.type === 'secondary') {
-            value = 'linear-gradient(to bottom, #E31552, #901036)'
-          } else if(this.type === 'tertiary') {
-            value = 'linear-gradient(to bottom, #FF7109, #C65400)'
+            value = 'radial-gradient(#5A95BC, #3D4E60)'
           }
           return value
       },
@@ -52,8 +50,6 @@ export default {
             value = 'white'
           } else if(this.type === 'secondary') {
             value = 'white'
-          } else if(this.type === 'tertiary') {
-            value = '#FFED89'
           }
           return value
       }

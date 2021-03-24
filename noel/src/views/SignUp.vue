@@ -1,18 +1,21 @@
 <template>
   <div class="signUp">
       <div class="signUp__content">
-        <span  class="signUp__text1">
-          Para una mejor experiencia recuerda completar tu registro.
-        </span>
-        <div class="signUp__box"> 
-          <span v-if="!mobile" class="signUp__box-text">No olvides que el número celular que registres, será el número que usaremos</span>
-          <span v-if="!mobile" class="signUp__box-text">
-            para las recargas y la entrega de los premios.
-          </span>
-          <span class="signUp__box-text" v-if="mobile">
-            No olvides que el número celular que registres, será el número que usaremos  para las recargas y la entrega de los premios.
-          </span>
+        <div class="title-views-global">
+          <img
+            v-if="!mobile"
+            class="title-views-global__web"
+            src="@/assets/web/Titulo_registro_usuario.png"
+            alt="Como participar titulo"
+          />
+          <img
+            v-if="mobile"
+            class="title-views-global__mobile"
+            src="@/assets/mobile/Titulo_registro_respons.png"
+            alt="Como participar"
+          />
         </div>
+        <span>Para participar completa tu registro.</span>
         <div class="signUp__form-row">
           <Input
             :model="user.name"
@@ -339,7 +342,8 @@ export default {
     padding: 10px 0 70px 0;
   }
   &__content {
-    background-color: rgba(32, 40, 58, 0.5);
+    box-shadow: 0px 3px 6px #00000029;
+    background: rgba(255, 255, 255, 0.1);
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -1,21 +1,20 @@
 <template>
   <div class="signup-confirm">
     <div class="signup-confirm__close-container">
-      <!-- <img
+      <img
         @click="close()"
         class="signup-confirm__close-image"
         src="@/assets/web/btn_cerrar.png"
-      /> -->
+      />
     </div>
-    <!-- <img
+    <img
       class="signup-confirm__image"
-      src="@/assets/web/logo_hinchas.png"
-    /> -->
+      src="@/assets/web/Logo_promo_que_nos_une_modales.png"
+    />
     <div class="signup-confirm__content">
       <span class="signup-confirm__text1" style="margin-bottom: 10px">
         Por favor confirma que tus datos estén correctos, especialmente tu número celular y operador al cual perteneces; recuerda que las recargas se realizarán a este número celular.
       </span>
-      <span class="signup-confirm__text">{{user.adult_registration ? 'Mayor de edad' : 'Menor de edad'}}</span>
       <span class="signup-confirm__text">Nombre: {{ user.name }}</span>
       <span class="signup-confirm__text">Cédula: {{ user.idn }}</span>
       <span class="signup-confirm__text">
@@ -26,7 +25,7 @@
       </span>
     </div>
     <div class="signup-confirm__buttons">
-      <Button text="EDITAR DATOS" type="tertiary" @handle-click="close()"/>
+      <Button text="EDITAR DATOS" type="secondary" @handle-click="close()"/>
       <Button text="ENVIAR" type="primary" @handle-click="preRegister()"/>
     </div>
   </div>
@@ -141,14 +140,15 @@ export default {
     flex-direction: column;
     align-items: center;
     width: 100%;
+    margin-top: -20px;
     @include mobile() {
       overflow-y: auto;
       max-height: 300px;
     }
   }
   &__text1 {
-    color: #E31552;
-    font-family: BebasNeue;
+    color: #253E87;
+    font-family: NexaBold;
     font-size: 16px;
     margin-bottom: 20px;
     @include mobile() {
@@ -156,20 +156,20 @@ export default {
     }
   }
   &__text {
-    color: #E31552;
+    color: #253E87;
     margin: 0 !important;
-    font-family: BebasNeue;
+    font-family: NexaBold;
     @include mobile() {
       font-size: 14px;
     }
   }
   &__image {
-    height: 120px;
-    margin-top: -40px;
+    height: 220px;
+    margin-top: -100px;
     margin-bottom: 10px;
     @include mobile() {
-      height: 80px;
-      margin-top: -20px;
+      height: 160px;
+      margin-top: -80px;
     }
   }
   &__close-container {
@@ -177,12 +177,13 @@ export default {
     justify-content: flex-end;
     width: 100%;
     padding: 10px;
+    margin-top: -56px;
   }
   &__close-image {
     height: 30px;
     cursor: pointer;
     @include mobile() {
-      height: 20px;
+      height: 28px;
     }
   }
   &__buttons {

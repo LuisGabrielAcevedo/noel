@@ -8,11 +8,6 @@ body {
   overflow: hidden !important;
 }
 
-*,
-*::after,
-*::before {
-  color: #253e87;
-}
 
 @font-face {
   font-family: "MyriadProRegular";
@@ -23,6 +18,12 @@ body {
   font-family: "NexaBold";
   src: url("assets/fonts/NexaBold.otf") format("opentype");
 }
+
+@font-face {
+  font-family: "MontserratItalic";
+  src: url("assets/fonts/Montserrat-Italic.ttf") format("truetype");
+}
+
 
 .title-views-global {
   width: 100%;
@@ -51,7 +52,3 @@ body {
   }
 }
 
-// @font-face {
-//   font-family: "HelveticaNeue";
-//   src: url("assets/fonts/HelveticaNeue.ttc") format("truetype");
-// }
