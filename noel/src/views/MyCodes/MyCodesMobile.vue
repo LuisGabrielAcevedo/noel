@@ -40,6 +40,7 @@
                 ¡Ganaste celular!
               </p>
               <img
+                @click="dialog = true"
                 class="myCodesMobile__content-items-content-action-arrow"
                 src="@/assets/mobile/Flecha_ir_detalle_codigo.png"
                 alt="flecha"
@@ -65,6 +66,7 @@
                 ¡Ganaste celular!
               </p>
               <img
+                @click="dialog = true"
                 class="myCodesMobile__content-items-content-action-arrow"
                 src="@/assets/mobile/Flecha_ir_detalle_codigo.png"
                 alt="flecha"
@@ -75,8 +77,55 @@
       </div>
     </div>
     <modal width="600" :dialog="dialog">
-      <div slot="component">
-        <h1>Hola</h1>
+      <div class="myCodesMobile__modal-content" slot="component">
+        <div class="myCodesMobile__close-container">
+          <img
+            @click="dialog = false"
+            class="myCodesMobile__close-image"
+            src="@/assets/web/btn_cerrar.png"
+          />
+        </div>
+        <img
+          class="myCodesMobile__image"
+          src="@/assets/web/Logo_promo_que_nos_une_modales.png"
+        />
+        <h2 class="myCodesMobile__content-modal-title">Detalle Pareja</h2>
+        <div class="myCodesMobile__content-modal-content">
+          <div class="myCodesMobile__content-modal-content-item">
+            <img
+              class="myCodesMobile__content-modal-content-item-img"
+              src="@/assets/web/Taco_Saltin.png"
+              alt="Taco Saltin"
+            />
+            <div class="myCodesMobile__content-modal-content-item-text">
+              <p class="myCodesMobile__content-modal-content-item-text-one">
+                ARFT5005
+              </p>
+              <p class="myCodesMobile__content-modal-content-item-text-two">
+                14/06/2020
+              </p>
+            </div>
+          </div>
+          <div class="myCodesMobile__content-modal-content-item">
+            <img
+              class="myCodesMobile__content-modal-content-item-img"
+              src="@/assets/web/Taco_Saltin.png"
+              alt="Taco Saltin"
+            />
+            <div class="myCodesMobile__content-modal-content-item-text">
+              <p class="myCodesMobile__content-modal-content-item-text-one">
+                ARFT5005
+              </p>
+              <p class="myCodesMobile__content-modal-content-item-text-two">
+                14/06/2020
+              </p>
+            </div>
+          </div>
+          <div class="myCodesMobile__award">
+            <p class="myCodesMobile__award-title">Premio:</p>
+            <p class="myCodesMobile__award-prime">¡GANASTE CELULAR!</p>
+          </div>
+        </div>
       </div>
     </modal>
   </div>
@@ -88,7 +137,7 @@ export default {
   name: "MyCodesMobile",
   data() {
     return {
-      dialog: true,
+      dialog: false,
     };
   },
   mounted() {},
@@ -98,8 +147,8 @@ export default {
   props: {
     tableData: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   computed: {
     mobile() {
@@ -161,20 +210,22 @@ export default {
       display: flex;
       background: #005aa7;
       border-radius: 20px;
-
-      height: 38px;
+      height: 41px;
       align-items: center;
+      position: relative;
 
       &-index {
-        flex-basis: 15%;
+        position: absolute;
+        left: 0;
         display: flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-around;
         margin: 0px !important;
         color: white;
         border: 3px solid white;
         border-radius: 50%;
-        height: 42px;
+        height: 43px;
+        width: 43px;
         font-size: 25px;
       }
 
@@ -183,6 +234,7 @@ export default {
         flex-basis: 90%;
         color: white;
         text-align: center;
+        padding-left: 20px;
       }
     }
   }
@@ -193,8 +245,15 @@ export default {
     justify-content: space-between;
     &-image {
       margin: 10px 0px 10px 0px;
-      height: 70px;
+      height: 90px;
       flex-basis: 20%;
+
+      @include mobile() {
+        height: 120px;
+      }
+      @include xs() {
+        height: 70px;
+      }
     }
 
     &-action {
@@ -204,6 +263,12 @@ export default {
       justify-content: space-around;
       &-text {
         margin: 0px !important;
+        @include mobile() {
+          font-size: 15px;
+        }
+        @include xs() {
+          font-size: 14px;
+        }
       }
 
       &-arrow {
@@ -220,6 +285,100 @@ export default {
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
     opacity: 1;
+  }
+  &__modal-content {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    min-height: 300px;
+    padding: 10px 20px;
+    @include mobile() {
+      padding: 10px;
+    }
+  }
+  &__image {
+    height: 220px;
+    margin-top: -100px;
+    margin-bottom: 10px;
+    @include mobile() {
+      height: 160px;
+      margin-top: -80px;
+    }
+  }
+  &__close-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 10px;
+    margin-top: -56px;
+  }
+  &__close-image {
+    height: 30px;
+    cursor: pointer;
+    @include mobile() {
+      height: 28px;
+    }
+  }
+
+  &__content-modal {
+    &-title {
+      font-size: 17px;
+      color: #253e87;
+    }
+
+    &-content {
+      display: flex;
+      flex-direction: column;
+
+      &-item {
+        margin-top: 20px;
+        display: flex;
+        justify-content: space-between;
+
+        &:first-of-type {
+          border-bottom: 1px dashed #ffca00;
+        }
+        &-img {
+          height: 50px;
+          margin-right: 10px;
+        }
+
+        &-text {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          line-height: 15px;
+          &-one {
+            font-size: 15px;
+            margin: 0px !important;
+          }
+
+          &-two {
+            font-size: 15px;
+            margin: 0px !important;
+          }
+        }
+      }
+    }
+  }
+
+  &__award {
+    background: #005aa7;
+    color: white;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 5px 0px;
+
+    &-title {
+      margin: 0px !important;
+      font-size: 14px;
+    }
+
+    &-prime {
+      margin: 0px !important;
+    }
   }
 }
 </style>
