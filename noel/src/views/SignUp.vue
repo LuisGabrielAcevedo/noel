@@ -310,7 +310,7 @@ export default {
       };
       this.$store.dispatch("setToken", resp.token);
       this.$store.dispatch("setUser", resp.user);
-      // this.$store.dispatch("loadBalance");
+      this.$store.dispatch("loadBalance");
       this.goTo("/ingresar-codigo");
     },
     validate() {
@@ -450,7 +450,7 @@ export default {
     display: flex;
     align-content: center;
     margin-bottom: 10px;
-    width: 360px;
+    width: 310px;
     @include mobile() {
       width: 100%;
       justify-content: center;

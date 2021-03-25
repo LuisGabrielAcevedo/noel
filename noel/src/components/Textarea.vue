@@ -121,7 +121,7 @@ export default {
 @import "@/assets/scss/mixins.scss";
 .textarea {
     height: 68px;
-    width: 360px;
+    width: 310px;
     margin: 0 10px;
     margin-bottom: 10px;
     textarea::placeholder {
