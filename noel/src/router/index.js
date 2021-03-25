@@ -57,9 +57,10 @@ const routes = [
     component: Awards,
   },
   {
-    path: "/my-codes",
+    path: "/mis-codigos",
     name: "myCodes",
     component: MyCodes,
+    beforeEnter: authGuard,
   },
   {
     path: "*",

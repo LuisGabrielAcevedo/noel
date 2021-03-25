@@ -15,7 +15,7 @@
             alt="Como participar"
           />
         </div>
-        <span>Para participar completa tu registro.</span>
+        <span class="signUp__subtitle">Para participar completa tu registro.</span>
         <div class="signUp__form-row">
           <Input
             :model="user.name"
@@ -56,65 +56,66 @@
             :error="errors.idn"
             :onlyNumbers="true"
           />
-          <Input
-            field="phone"
-            label="CELULAR"
-            :model="user.phone"
-            @close-all="
-              $refs.operator.open = false;
-            "
-            @handle-input="setValue($event)"
-            placeholder="Ingresar nº celular"
-            :required="true"
-            :error="errors.phone"
-            maxlength="10"
-            :onlyNumbers="true"
-          />
+          <Select
+              class="mb-3 spacer-2"
+              style="margin-bottom: 0px !important;"
+              ref="department_state"
+              @close-all="$refs.operator.open = false"
+              field="department_state"
+              label="Departamento"
+              :model="user.department_state"
+              placeholder="Seleccionar Departamento"
+              :items="fomattedStates"
+              @handle-input="setValue($event)"
+              :required="true"
+              :error="errors.department_state"
+            />
           </div>
           <div class="signUp__form-row">
+            <Input
+              field="phone"
+              label="CELULAR"
+              :model="user.phone"
+              @close-all="
+                $refs.operator.open = false;
+              "
+              @handle-input="setValue($event)"
+              placeholder="Ingresar nº celular"
+              :required="true"
+              :error="errors.phone"
+              maxlength="10"
+              :onlyNumbers="true"
+            />
             <Select
+              class="mb-3 spacer-2"
+              style="margin-bottom: 0px !important;"
               ref="operator"
               field="operator"
-              label="OPERADOR"
+              @close-all="$refs.department_state.open = false"
+              label="Operador"
               :model="user.operator"
-              placeholder="Seleccionar operador"
+              placeholder="Seleccionar Operador"
               :items="fomattedOperators"
               @handle-input="setValue($event)"
               :required="true"
               :error="errors.operator"
             />
-            
-            <div class="signUp__switch-container">
-              <div>
-                <div class="signUp__radio-container">
-                  <div style="width:40px;">
-                    <div>
-                      <Radio @handle-click="toggleAdultRegistration()" :value="!!user.adult_registration"/>
-                    </div>
-                  </div>
-                  <span class="signUp__radio-text" style="margin-left: -12px;">Soy mayor de edad.</span>
-                </div>
-                <div class="signUp__error" v-if="adultError">
-                  <span>{{adultError}}</span>
-                </div>
-              </div>
-            </div>
           </div>
           <div>
             <div class="signUp__radio-container">
-            <div>
-              <Radio @handle-click="toggleTerms()" :value="terms"/>
-            </div>
-            <span class="signUp__radio-text">Acepto los <span class="signUp__radio-text-action" @click="goToTerms()">términos y condiciones</span> de la promoción.</span>
-          </div>
-          <div class="signUp__radio-container">
-            <div style="width:40px;">
               <div>
-                <Radio @handle-click="toggleTerms4()" :value="terms4"/>
+                <Radio @handle-click="toggleTerms()" :value="terms"/>
               </div>
+              <span class="signUp__radio-text">Acepto los <span class="signUp__radio-text-action" @click="goToTerms()">términos y condiciones</span> de la promoción.</span>
             </div>
-            <span class="signUp__radio-text" style="margin-left: -12px;">Acepto las <span class="signUp__radio-text-action" @click="goToPolo()">políticas de privacidad</span> de la promoción.</span>
-          </div>
+            <div class="signUp__radio-container">
+              <div style="width:40px;">
+                <div>
+                  <Radio @handle-click="toggleTerms4()" :value="terms4"/>
+                </div>
+              </div>
+              <span class="signUp__radio-text" style="margin-left: -12px;">Acepto las <span class="signUp__radio-text-action" @click="goToPolo()">políticas de privacidad</span> de la promoción.</span>
+            </div>
           </div>
           <Button text="Registrarme" type="primary" @handle-click="send()"/>
       </div>
@@ -144,10 +145,9 @@ export default {
     return {
       terms: false,
       terms4: false,
-      user: {adult_registration: false},
+      user: {},
       loading: false,
       touch: false,
-      adultError: '',
       errors: {},
       dialog: false,
       operators: [
@@ -160,6 +160,41 @@ export default {
         "Flash Mobile",
         "Móvil Éxito"
       ],
+      states: [
+        "AMAZONAS",
+        "ANTIOQUIA",
+        "ARAUCA",
+        "ATLÁNTICO",
+        "BOGOTÁ D.C.",
+        "BOLÍVAR",
+        "BOYACÁ",
+        "CALDAS",
+        "CAQUETA",
+        "CAUCA",
+        "CESAR",
+        "CHOCÓ",
+        "CÓRDOBA",
+        "CUNDINAMARCA",
+        "GUAINÍA",
+        "GUAVIARE",
+        "HUILA",
+        "MAGDALENA",
+        "NARIÑO",
+        "RISARALDA",
+        "NORTE DE SANTANDER",
+        "QUINDIO",
+        "SANTANDER",
+        "SUCRE",
+        "TOLIMA",
+        "VALLE DEL CAUCA",
+        "CASANARE",
+        "LA GUAJIRA",
+        "META",
+        "SAN ANDRES",
+        "PUTUMAYO",
+        "VAUPÉS",
+        "VICHADA"
+      ]
     };
   },
   mounted() {},
@@ -179,6 +214,12 @@ export default {
         text: o
       }));
     },
+    fomattedStates() {
+      return this.states.map(s => ({
+        value: s,
+        text: s
+      }));
+    },
     mobile() {
       return this.$store.getters.mobile;
     },
@@ -187,10 +228,6 @@ export default {
     },
   },
   methods: {
-    toggleAdultRegistration() {
-      this.user.adult_registration = !this.user.adult_registration
-      this.adultError = !this.user.adult_registration ? "Debes seleccionar que eres mayor de edad." : ''
-    },
     toggleTerms() {
       this.terms = !this.terms
     },
@@ -203,7 +240,8 @@ export default {
         !this.user.email ||
         !this.user.idn ||
         !this.user.operator ||
-        !this.user.phone
+        !this.user.phone ||
+        !this.user.department_state
       ) {
         this.touch = true;
         this.validate();
@@ -215,15 +253,7 @@ export default {
         });
       } else {
         if (!Object.keys(this.errors).length) {
-          this.adultError = !this.user.adult_registration ? "Debes seleccionar que eres mayor de edad." : ''
-          if (!this.user.adult_registration) {
-             this.$store.dispatch("setAlert", {
-              buttonLabel: "Aceptar",
-              type:'INFO',
-              showClose: true,
-              message: "¡Para participar en la actividad debes ser mayor de edad!."
-            });
-          } else if (!this.terms) {
+          if (!this.terms) {
             this.$store.dispatch("setAlert", {
               buttonLabel: "Aceptar",
               type:'INFO',
@@ -275,7 +305,8 @@ export default {
         idn: "",
         operator: "",
         phone: "",
-        adult_registration: false
+        adult_registration: 1,
+        department_state: "",
       };
       this.$store.dispatch("setToken", resp.token);
       this.$store.dispatch("setUser", resp.user);
@@ -297,9 +328,9 @@ export default {
       }
       if (
         this.user.name &&
-        !(this.user.name.length >= 3 && this.user.name.length < 50)
+        !(this.user.name.length > 6 && this.user.name.length < 60)
       ) {
-        errors.name = "El nombre debe tener entre 3 y 50 carácteres.";
+        errors.name = "El nombre debe tener entre 6 y 60 carácteres.";
       }
       if (this.user.phone && !phoneReq.test(this.user.phone)) {
         errors.phone = "Ingresa un número de celular válido.";
@@ -320,7 +351,8 @@ export default {
         if (!this.user.idn) errors.idn = "Este campo es obligatorio.";
         if (!this.user.phone) errors.phone = "Este campo es obligatorio.";
         if (!this.user.operator) errors.operator = "Este campo es obligatorio.";
-        this.adultError = !this.user.adult_registration ? "Debes seleccionar que eres mayor de edad." : ''
+        if (!this.user.department_state)
+          errors.department_state = "Este campo es obligatorio.";
       }
       this.errors = errors;
     },
@@ -367,7 +399,7 @@ export default {
   }
   &__icon-text {
     color: white;
-    font-family: BebasNeueBold;
+    font-family: BebasNeue;
     margin-left: 10px;
   }
   &__box {
@@ -381,14 +413,14 @@ export default {
     margin-bottom: 10px;
   }
   &__box-text {
-    font-family: BebasNeueBold;
+    font-family: BebasNeue;
     font-size: 18px;
     line-height: 18px;
     text-align: center;
   }
   &__text1 {
     color: white;
-    font-family: BebasNeueBold;
+    font-family: BebasNeue;
     font-size: 20px;
     line-height: 26px;
     text-align: center;
@@ -406,12 +438,12 @@ export default {
     }
   }
   &__radio-text {
-    color: white;
+    color: #253E87;
     font-family: BebasNeue;
-    font-size: 16px;
+    font-size: 14px;
   }
   &__radio-text-action {
-    color: #E31552;
+    color: #253E87;
     cursor: pointer;
   }
   &__radio-container {
@@ -424,30 +456,10 @@ export default {
       justify-content: center;
     }
   }
-  &__switch {
-    color: white;
-    font-family: BebasNeueBold;
-    margin-left: 10px;
-  }
-  &__switch-container{
-    width: 360px; margin: 0 10px;
-    margin-top: 16px;
-    padding-left: 10px;
-    @include mobile() {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      margin-bottom: 10px;
-    }
-  }
-  &__error {
-    color: white;
-    font-family: BebasNeueBold;
-    font-size: 11px;
-    @include mobile() {
-      font-size: 12px;
-    }
-    margin-top: -4px;
+  &__subtitle {
+    margin-bottom: 10px;
+    font-family: NexaBold;
+    color: #253E87;
   }
 }
 </style>

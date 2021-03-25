@@ -213,10 +213,7 @@ export default {
   }
   &__text {
     font-family: MontserratItalic;
-    font-size: 18px;
-    @include mobile() {
-      font-size: 15px;
-    }
+    font-size: 14px;
     @include xs() {
       font-size: 12px;
     }
