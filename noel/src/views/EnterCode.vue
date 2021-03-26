@@ -24,7 +24,7 @@
             class="enterCode-web__mini"
             src="@/assets/web/miniaturas_stickers.png"
           />
-          <span>
+          <span class="enterCode-web__mini-text">
             Ingresa aquí los códigos que encontraste en los stickers dentro de los empaques de Saltín Noel y Ducales.
           </span>
         </div>
@@ -35,12 +35,12 @@
               src="@/assets/web/ejemplo_codigo_Saltin.png"
             />
             <Input
-              field="id"
-              :model="id"
+              field="saltin"
+              :model="saltin"
+              :error="errors.saltin"
               @handle-input="setValue($event)"
-              placeholder="Escribe aquí tu código"
-              maxlength="10"
-              :error="error"
+              maxlength="9"
+              placeholder="Ingresar código Saltín Noel"
             />
           </div>
           <img
@@ -53,12 +53,12 @@
               src="@/assets/web/ejemplo_codigo_ducales.png"
             />
             <Input
-              field="id"
-              :model="id"
+              field="ducales"
+              :model="ducales"
+              :error="errors.ducales"
+              maxlength="9"
               @handle-input="setValue($event)"
-              placeholder="Escribe aquí tu código"
-              maxlength="10"
-              :error="error"
+              placeholder="Ingresar código Ducales"
             />
           </div>
         </div>
@@ -73,6 +73,7 @@
             @expired="expiredRecaptcha"
             class="mb-1"
             language="es"
+            ref="recaptcha"
           ></vue-recaptcha>
         </div>
         <div>
@@ -80,6 +81,25 @@
         </div>
       </div>
     </div>
+    <div v-if="mobile" class="enterCode-mobile">
+      <img
+        class="enterCode-mobile__title"
+        src="@/assets/web/Titulo_bienvenido.png"
+      />
+    </div>
+    <modal :dialog="dialog" @close="dialog = false;reset();" 
+      width="550">
+      <register-code-confirm
+        v-if="dialog"
+        :user="user"
+        :saltin="respStatus.saltin"
+        :ducales="respStatus.ducales"
+        :saltinMsg="respStatus.saltinMsg"
+        :ducalesMsg="respStatus.ducalesMsg"
+        slot="component"
+        @close="dialog = false"
+      ></register-code-confirm>
+    </modal>
   </div>
 </template> 
 
@@ -88,40 +108,54 @@ import Input from '../components/Input'
 import Button from '../components/Button'
 import VueRecaptcha from "vue-recaptcha";
 import {SaveCodes} from '../api'
+import RegisterCodeConfirm from "../components/RegisterCodeConfirm";
+import Modal from "../components/Modal";
+
 
 export default {
   name: 'EnterCode',
   data() {
     return {
       loading: false,
-      id: "",
-      error: "",
+      errors: {},
       recaptchaCode: null,
       count: 0, 
+      ducales: "",
+      saltin: "",
+      userStatus: "",
+      respStatus: {
+        ducales: "",
+        saltin: "",
+        saltinMsg: "",
+        ducalesMsg: ""
+      },
+      dialog: false
     };
   },
   components: {
     Input,
     Button,
     VueRecaptcha,
+    RegisterCodeConfirm, 
+    Modal
   },
   computed: {
     mobile() {
       return this.$store.getters.mobile;
     },
-    user() {
-      return this.$store.getters.user;
-    },
     total() {
       return this.$store.getters.total;
+    },
+    user() {
+      return this.$store.getters.user;
     },
   },
   methods: {
     send() {
       this.verifyCatptcha()
-       if (this.id) {
+       if (this.saltin || this.ducales) {
         if (this.recaptchaCode) {
-          this.save();
+          this.save(this.saltin, this.ducales);
         } else {
           this.$store.dispatch("setAlert", {
           buttonLabel: "Aceptar",
@@ -136,32 +170,33 @@ export default {
           buttonLabel: "Aceptar",
           type:'INFO',
           showClose: true,
-          message: "¡Ingresa un código válido!.",
+          message: "¡Ingresa un código de Saltín Noel o Ducales válido!."
         });
       }
     }, 
-    save() {
+    save(saltin, ducales) {
       this.loading = true;
       SaveCodes({
-        code: this.id,
+        code_saltin: saltin,
+        code_ducales: ducales
       })
         .then((resp) => {
-           this.id = "";
-            this.loading = false;
-            this.$refs.recaptcha.reset()
-            this.recaptchaCode = null;
-            this.count = 0
-            this.$store.dispatch("loadBalance");
-            this.$store.dispatch("setAlert", {
-            buttonLabel: "Aceptar",
-            showClose: true,
-            codesButton: resp.data?.res === 'bonus' || resp.data?.res === 'charge',
-            message: resp.data.message,
-          });
+          this.loading = false;
+          this.respStatus = {
+            ducales: resp.data.ducales.res,
+            saltin: resp.data.saltin.res,
+            saltinMsg: resp.data.saltin.message,
+            ducalesMsg: resp.data.ducales.message
+          };
+          this.dialog = true;
+          this.$store.dispatch("loadBalance");
+          this.ducales = "";
+          this.saltin = "";
         })
         .catch((err) => {
           if (err.response.status !== 401) {
-            this.id = "";
+            this.ducales = "";
+            this.saltin = "";
             this.loading = false;
             this.$store.dispatch("setAlert", {
             buttonLabel: "Aceptar",
@@ -179,7 +214,7 @@ export default {
       this.recaptchaCode = null;
     },
     setValue(e) {
-      this.id = e.value;
+      e.key === "saltin" ? (this.saltin = e.value) : (this.ducales = e.value);
     },
     verifyCatptcha() {
       if (this.count === 3) {
@@ -260,9 +295,29 @@ export default {
   }
   &__box-text {
     margin-top: -24px;
+    font-family: NexaBold;
+    color: #253E87;
+    font-size: 16px;
   }
   &__rec {
     transform: scale(0.9);
   }
+  &__mini-text {
+    font-family: NexaBold;
+    color: #253E87;
+    font-size: 16px;
+    line-height: 20px;
+  }
+  &__more {
+    height: 40px;
+    margin: 10px;
+  }
 }
+
+.enterCode-mobile {
+  &__title {
+    height: 50px;
+  }
+}
+
 </style> 

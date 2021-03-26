@@ -162,17 +162,17 @@ export default {
       line-height: 11px !important;
       padding: 3px 0 0 10px;
     }
-    &__error {
-      color: white;
-      font-family: BebasNeueBold;
+   &__error {
+      color: #253E87;
+      font-family: NexaBold;
       font-size: 11px;
       @include mobile() {
         font-size: 12px;
       }
     }
     &__hint {
-        color: white;
-        font-family: BebasNeueBold;
+        color: #253E87;
+        font-family: NexaBold;
         font-size: 11px;
         @include mobile() {
           font-size: 12px;

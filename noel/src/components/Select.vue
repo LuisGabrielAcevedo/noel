@@ -200,9 +200,9 @@ export default {
     overflow-y: scroll;
   }
   &__option {
-    font-size: 16px;
+    font-size: 13px;
     color: black;
-    padding: 3px 1px 1px 1px;
+    padding: 3px 2px 1px 2px;
     font-family: MontserratItalic;
     @include mobile() {
       font-size: 14px;
@@ -219,8 +219,8 @@ export default {
     }
   }
   &__error {
-    color: white;
-    font-family: BebasNeueBold;
+    color: #253E87;
+    font-family: NexaBold;
     font-size: 11px;
     @include mobile() {
       font-size: 12px;

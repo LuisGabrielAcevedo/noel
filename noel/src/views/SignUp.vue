@@ -450,7 +450,7 @@ export default {
     display: flex;
     align-content: center;
     margin-bottom: 10px;
-    width: 310px;
+    width: 360px;
     @include mobile() {
       width: 100%;
       justify-content: center;
