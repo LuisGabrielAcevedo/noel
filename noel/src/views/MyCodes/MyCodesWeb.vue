@@ -38,7 +38,10 @@
             <p class="myCodesWeb__table-cant">{{ item.cant }}</p>
           </div>
           <div class="myCodesWeb__table-content-element myCodesWeb__text-row">
-            <div class="myCodesWeb__table-text-content">
+            <div
+              v-if="item.saltinNoel.titleOne && item.saltinNoel.titleTwo"
+              class="myCodesWeb__table-text-content"
+            >
               <p class="myCodesWeb__table-text-content-one">
                 {{ item.saltinNoel.titleOne }}
               </p>
@@ -46,20 +49,35 @@
                 {{ item.saltinNoel.titleTwo }}
               </p>
             </div>
-            <button class="myCodesWeb__table-btn-action ">
+            <div
+              v-else
+              class="myCodesWeb__table-text-content myCodesWeb__table-text-content-alignEmpty"
+            >
+              -
+            </div>
+            <button class="myCodesWeb__table-btn-action">
               <p>
                 +
               </p>
             </button>
           </div>
           <div class="myCodesWeb__table-content-element myCodesWeb__text-row">
-            <div class="myCodesWeb__table-text-content">
+            <div
+              v-if="item.ducales.titleOne && item.ducales.titleTwo"
+              class="myCodesWeb__table-text-content"
+            >
               <p class="myCodesWeb__table-text-content-one">
                 {{ item.ducales.titleOne }}
               </p>
               <p class="myCodesWeb__table-text-content-two">
                 {{ item.ducales.titleTwo }}
               </p>
+            </div>
+            <div
+              v-else
+              class="myCodesWeb__table-text-content myCodesWeb__table-text-content-alignEmpty"
+            >
+              -
             </div>
             <button class="myCodesWeb__table-btn-action">
               <p>=</p>
@@ -89,8 +107,8 @@ export default {
   props: {
     tableData: {
       type: Array,
-      default: () => []
-    }
+      default: () => [],
+    },
   },
   computed: {
     mobile() {
@@ -198,6 +216,10 @@ export default {
       margin-right: 25px;
       margin-top: 5px;
       text-align: center;
+
+      &-alignEmpty {
+        margin-left: 40px !important;
+      }
 
       &-one {
         color: #131f45;

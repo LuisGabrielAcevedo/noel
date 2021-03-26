@@ -1,6 +1,6 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import { GetBalance } from "@/api";
+import { GetBalance, GetLatestWinners, GetCodesRedemtions } from "@/api";
 Vue.use(Vuex);
 
 const user = localStorage.getItem("user");
@@ -17,6 +17,8 @@ export default new Vuex.Store({
     termsAndConditions: false,
     privacyPolicy: false,
     mobile: false,
+    winners: null,
+    codes: null,
   },
   mutations: {
     setLoading(state, loading) {
@@ -46,6 +48,12 @@ export default new Vuex.Store({
     setMobile(state, mobile) {
       state.mobile = mobile;
     },
+    setWinners(state, winners) {
+      state.winners = winners;
+    },
+    setCodes(state, codes) {
+      state.codes = codes;
+    },
   },
   getters: {
     loading(state) {
@@ -74,6 +82,12 @@ export default new Vuex.Store({
     },
     mobile(state) {
       return state.mobile;
+    },
+    winners(state) {
+      return state.winners;
+    },
+    codes(state) {
+      return state.codes;
     },
   },
   actions: {
@@ -107,11 +121,20 @@ export default new Vuex.Store({
       commit("setMobile", mobile);
     },
     loadBalance({ commit }) {
-      GetBalance()
-        .then(resp => {
-          commit("setCharges", resp.charges);
-          commit("setBonus", resp.bonus);
-        })
+      GetBalance().then(resp => {
+        commit("setCharges", resp.charges);
+        commit("setBonus", resp.bonus);
+      });
+    },
+    getWinners({ commit }) {
+      GetLatestWinners().then(resp => {
+        commit("setWinners", resp.data);
+      });
+    },
+    getCodes({ commit }) {
+      GetCodesRedemtions().then(resp => {
+        commit("setCodes", resp.data);
+      });
     },
   },
 });

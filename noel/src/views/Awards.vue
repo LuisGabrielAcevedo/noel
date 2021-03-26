@@ -84,7 +84,10 @@ export default {
       type: 1,
     };
   },
-  mounted() {},
+  mounted() {
+    this.$store.dispatch("getWinners");
+    console.log(this.winners);
+  },
   components: {},
   props: {},
   computed: {
@@ -93,6 +96,9 @@ export default {
     },
     token() {
       return this.$store.getters.token;
+    },
+    winners() {
+      return this.$store.getters.winners;
     },
   },
   methods: {
