@@ -118,7 +118,7 @@ export default {
 
 .select {
   height: 68px;
-  width: 360px;
+  width: 310px;
   margin: 0 10px;
   margin-bottom: 10px;
   @include mobile() {
@@ -213,10 +213,7 @@ export default {
   }
   &__text {
     font-family: MontserratItalic;
-    font-size: 18px;
-    @include mobile() {
-      font-size: 15px;
-    }
+    font-size: 14px;
     @include xs() {
       font-size: 12px;
     }

@@ -51,7 +51,7 @@ export default {
     };
   },
   mounted() {
-    // if (this.token) this.$store.dispatch("loadBalance");
+    if (this.token) this.$store.dispatch("loadBalance");
     window.addEventListener("resize", this.onResize);
     this.$store.dispatch("setMobile", window.innerWidth <= 900);
     if (/iPad|iPhone|iPod/.test(navigator.userAgent)) {

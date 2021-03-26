@@ -77,7 +77,7 @@ export default {
               this.loading = false;
               this.$store.dispatch("setToken", resp.token);
               this.$store.dispatch("setUser", resp.user);
-              // this.$store.dispatch("loadBalance");
+              this.$store.dispatch("loadBalance");
               this.goTo("/ingresar-codigo");
             })
             .catch((err) => {

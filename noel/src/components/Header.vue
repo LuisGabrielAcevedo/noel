@@ -6,6 +6,7 @@
       <div v-for="(route, k) in webRoutes" :key="k">
         <div
           v-if="route.isVisible()"
+          @click="click(route)"
           class="header__web-route"
           :class="{
             'header--web-route-selected': route.path === selectedRoute,
@@ -13,7 +14,6 @@
         >
           <span
             class="header__web-route-text"
-            @click="click(route)"
             :class="{
               'header--web-route-text-selected': route.path === selectedRoute,
             }"
@@ -34,7 +34,7 @@
 </template>
 
 <script>
-// import {ClearSession} from '../api'
+import {ClearSession} from '../api'
 export default {
   name: "Header",
   data: () => ({
@@ -83,19 +83,14 @@ export default {
       },
       {
         name: "MIS CODIGOS",
-        path: "/my-codes",
-        isVisible: () => true,
+        path: "/mis-codigos",
+        isVisible: () => this.token,
       },
       {
         name: "TÉRMINOS Y CONDICIONES",
         path: "/terminos-y-condiciones",
         isVisible: () => !this.token,
         clickAction: () => this.$store.dispatch("setTermsAndConditions", true),
-      },
-      {
-        name: "MIS CÓDIGOS",
-        path: "/mi-cuenta",
-        isVisible: () => this.token,
       },
       {
         name: "CONTÁCTENOS",
@@ -131,12 +126,10 @@ export default {
   },
   methods: {
     logout() {
-      // ClearSession().then(() => {
-      //   this.$store.dispatch("logout");
-      //   this.goTo("/ingresar");
-      // });
-      this.$store.dispatch("logout");
-      this.goTo("/ingresar");
+      ClearSession().then(() => {
+        this.$store.dispatch("logout");
+        this.goTo("/ingresar");
+      });
     },
     logoClick() {
       this.token ? this.goTo("/ingresar-codigo") : this.goTo("/ingresar");
@@ -201,6 +194,9 @@ export default {
   &__web-route {
     cursor: pointer;
     border-radius: 25px;
+    padding: 4px 10px 2px 10px;
+    text-align: center;
+    line-height: 14px;
   }
   &--web-route-selected {
     background-color: white;
@@ -209,7 +205,7 @@ export default {
     color: white;
     font-family: NexaBold;
     font-size: 14px;
-    padding: 0 10px;
+    text-align: center;
   }
   &--web-route-text-selected {
     color: #253e87;

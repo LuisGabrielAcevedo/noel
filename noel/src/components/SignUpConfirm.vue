@@ -74,7 +74,7 @@ export default {
       this.edit ? this.update() : this.register();
     },
     register() {
-      Register(this.user)
+      Register({ ...this.user, adult_registration: 1 })
         .then(resp => {
           this.loading = false;
           this.closeSuccess(resp);

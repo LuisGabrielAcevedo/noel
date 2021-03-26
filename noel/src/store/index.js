@@ -12,8 +12,7 @@ export default new Vuex.Store({
     user: user ? JSON.parse(user) : null,
     token: token ? token : null,
     alert: null,
-    charges: 0,
-    bonus: 0,
+    total: 0,
     termsAndConditions: false,
     privacyPolicy: false,
     mobile: false,
@@ -27,11 +26,8 @@ export default new Vuex.Store({
     setUser(state, user) {
       state.user = user;
     },
-    setCharges(state, charges) {
-      state.charges = charges;
-    },
-    setBonus(state, bonus) {
-      state.bonus = bonus;
+    setTotal(state, total) {
+      state.total = total;
     },
     setToken(state, token) {
       state.token = token;
@@ -65,11 +61,8 @@ export default new Vuex.Store({
     token(state) {
       return state.token;
     },
-    bonus(state) {
-      return state.bonus;
-    },
-    charges(state) {
-      return state.charges;
+    total(state) {
+      return state.total;
     },
     alert(state) {
       return state.alert;
@@ -122,8 +115,7 @@ export default new Vuex.Store({
     },
     loadBalance({ commit }) {
       GetBalance().then(resp => {
-        commit("setCharges", resp.charges);
-        commit("setBonus", resp.bonus);
+        commit("setTotal", resp.total);
       });
     },
     getWinners({ commit }) {
