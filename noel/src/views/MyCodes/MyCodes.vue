@@ -48,7 +48,8 @@ export default {
       }
     },
     formatData(data) {
-      console.log("data", data);
+      //computer
+      //charges
 
       const newData = data.map((item, index) => ({
         cant: index + 1,

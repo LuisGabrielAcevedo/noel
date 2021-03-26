@@ -7,6 +7,7 @@ import MyAccount from "../views/MyAccount.vue";
 import SignIn from "../views/SignIn.vue";
 import SignUp from "../views/SignUp.vue";
 import MyCodes from "../views/MyCodes/MyCodes.vue";
+import Winners from "../views/Winners.vue";
 import store from "@/store";
 
 const authGuard = async (to, from, next) => {
@@ -61,6 +62,11 @@ const routes = [
     name: "myCodes",
     component: MyCodes,
     beforeEnter: authGuard,
+  },
+  {
+    name: "winners",
+    path: "/ganadores",
+    component: Winners,
   },
   {
     path: "*",

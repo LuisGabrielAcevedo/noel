@@ -84,10 +84,7 @@ export default {
       type: 1,
     };
   },
-  mounted() {
-    this.$store.dispatch("getWinners");
-    console.log(this.winners);
-  },
+  mounted() {},
   components: {},
   props: {},
   computed: {

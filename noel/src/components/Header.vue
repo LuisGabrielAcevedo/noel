@@ -1,7 +1,15 @@
 <template>
   <div class="header">
-    <img class="header__menu" src="@/assets/mobile/btn_menu.png" v-if="mobile">
-    <img class="header__logo" @click="logoClick()" src="@/assets/web/Logos_marcas_cabezote.png">
+    <img
+      class="header__menu"
+      src="@/assets/mobile/btn_menu.png"
+      v-if="mobile"
+    />
+    <img
+      class="header__logo"
+      @click="logoClick()"
+      src="@/assets/web/Logos_marcas_cabezote.png"
+    />
     <div class="header__web-routes" v-if="!this.mobile">
       <div v-for="(route, k) in webRoutes" :key="k">
         <div
@@ -34,7 +42,7 @@
 </template>
 
 <script>
-import {ClearSession} from '../api'
+import { ClearSession } from "../api";
 export default {
   name: "Header",
   data: () => ({
@@ -74,6 +82,11 @@ export default {
       {
         name: "¿CÓMO PARTICIPAR?",
         path: "/como-particiar",
+        isVisible: () => true,
+      },
+      {
+        name: "GANADORES",
+        path: "/ganadores",
         isVisible: () => true,
       },
       {
@@ -166,7 +179,7 @@ export default {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: radial-gradient(#253E87, #131F44);
+  background: radial-gradient(#253e87, #131f44);
   height: 70px;
   border-radius: 30px;
   padding: 0 80px;
