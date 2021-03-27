@@ -13,16 +13,16 @@ export default {
   props: {
     dialog: {
       type: Boolean,
-      default: false
+      default: false,
     },
     width: {
       type: String,
-      default: "500"
+      default: "500",
     },
     permanent: {
       type: Boolean,
-      false: true
-    }
+      false: true,
+    },
   },
   methods: {
     permanentAction() {
@@ -34,8 +34,8 @@ export default {
     },
     close() {
       this.$emit("close");
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -55,8 +55,9 @@ export default {
   z-index: 10 !important;
   background-color: rgba(0, 0, 0, 0.7);
   &__content {
-    background: linear-gradient(to bottom, #FFB000, #FFB000);
-    border: 3px solid #EC2C8D;
+    background: transparent linear-gradient(180deg, #ffdd5d 0%, #ffb000 100%) 0%
+      0% no-repeat padding-box;
+    border: 3px solid #ec2c8d;
     box-shadow: 7px 7px 7px #00000059;
     border-radius: 25px;
     @include mobile() {

@@ -39,21 +39,78 @@
         </div>
       </div>
     </div>
+
+    <button
+      @click="dialog = true"
+      v-if="tableWinners"
+      class="winners__winners-button"
+    >
+      Ver lista de todos los ganadores
+    </button>
+    <modal width="850" :dialog="dialog">
+      <div class="winners__modal-content" slot="component">
+        <div class="winners__close-container">
+          <img
+            @click="dialog = false"
+            class="winners__close-image"
+            src="@/assets/web/btn_cerrar.png"
+          />
+        </div>
+        <img
+          class="winners__image"
+          src="@/assets/web/Logo_promo_que_nos_une_modales.png"
+        />
+        <div class=" winners__table winners__table-modal">
+          <div class="winners__table-header">
+            <div class="winners__table-header-item">
+              {{ mobile ? "Nombre" : "Nombre del Participante" }}
+            </div>
+            <div v-if="!mobile" class="winners__table-header-item">Ciudad</div>
+            <div class="winners__table-header-item">Premio</div>
+          </div>
+
+          <div
+            class="winners__table-content-row"
+            v-for="(item, index) in tableWinnersModal"
+            :key="index"
+          >
+            <div class="winners__table-header-item winners__color">
+              {{ item.name }}
+            </div>
+            <div
+              v-if="!mobile"
+              class="winners__table-header-item winners__color"
+            >
+              {{ item.city }}
+            </div>
+            <div class="winners__table-header-item winners__color-dark">
+              {{ item.result }}
+            </div>
+          </div>
+        </div>
+      </div>
+    </modal>
   </div>
 </template>
 
 <script>
+import Modal from "../components/Modal";
+
 export default {
   name: "Winners",
   data() {
     return {
       tableWinners: [],
+      tableWinnersModal: [],
+      dialog: false,
     };
   },
   mounted() {
     this.$store.dispatch("getWinners");
   },
-  components: {},
+  components: {
+    Modal,
+  },
   props: {},
   computed: {
     mobile() {
@@ -81,7 +138,18 @@ export default {
   },
   watch: {
     winners(data) {
-      this.tableWinners = data;
+      const strings = {
+        bonus: "Tarjeta Regalo",
+        computer: "Computador",
+        charge: "Recarga",
+      };
+      const dataTable = data.map(item => ({
+        ...item,
+        result: strings[item.result],
+      }));
+
+      this.tableWinners = dataTable.slice(0, 6);
+      this.tableWinnersModal = dataTable;
     },
   },
 };
@@ -99,8 +167,12 @@ export default {
   &__table {
     margin-top: 21px;
     flex: 1;
-    width: 700px;
+    width: 800px;
     padding: 0px !important;
+
+    &-modal {
+      overflow-y: scroll !important;
+    }
 
     @include mobile() {
       width: 92%;
@@ -110,7 +182,7 @@ export default {
   &__table-header {
     display: flex;
     justify-content: space-around;
-    padding: 10px 0px;
+    padding: 5px 50px;
     background: #005aa7;
     border-radius: 30px;
 
@@ -128,11 +200,11 @@ export default {
   &__table-content-row {
     display: flex;
     justify-content: space-around;
-    padding: 10px 0px;
+    padding: 5px 50px;
     border-bottom: 1px dashed #fff581;
 
     &:last-of-type {
-      margin-bottom: 30px;
+      margin-bottom: 10px;
     }
   }
 
@@ -142,6 +214,55 @@ export default {
 
   &__color-dark {
     color: #253e87;
+  }
+
+  &__winners-button {
+    background: transparent
+      radial-gradient(closest-side at 50% 50%, #0079ff 0%, #0051aa 100%) 0% 0%
+      no-repeat padding-box;
+    box-shadow: 0px 3px 6px #00000067;
+    border-radius: 30px;
+    color: white;
+    padding: 10px 61px;
+    margin: 20px;
+  }
+
+  &__modal-content {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    min-height: 300px;
+    padding: 10px 20px;
+    height: 400px;
+    @include mobile() {
+      padding: 10px;
+    }
+  }
+  &__image {
+    height: 220px;
+    margin-top: -100px;
+    margin-bottom: 10px;
+
+    @include mobile() {
+      height: 160px;
+      margin-top: -80px;
+    }
+  }
+  &__close-container {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding: 10px;
+    margin-top: -56px;
+  }
+  &__close-image {
+    height: 30px;
+    cursor: pointer;
+    @include mobile() {
+      height: 28px;
+    }
   }
 }
 </style>

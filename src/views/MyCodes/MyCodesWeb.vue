@@ -24,7 +24,7 @@
       <div class="myCodesWeb__table">
         <div class="myCodesWeb__table-header">
           <p class="myCodesWeb__table-header-titles">Cant.</p>
-          <p class="myCodesWeb__table-header-titles">Saltin Noel</p>
+          <p class="myCodesWeb__table-header-titles">Saltín Noel</p>
           <p class="myCodesWeb__table-header-titles">Ducales</p>
           <p class="myCodesWeb__table-header-titles">Premios</p>
         </div>
@@ -39,7 +39,11 @@
           </div>
           <div class="myCodesWeb__table-content-element myCodesWeb__text-row">
             <div
-              v-if="item.saltinNoel.titleOne && item.saltinNoel.titleTwo"
+              v-if="
+                item.saltinNoel &&
+                  item.saltinNoel.titleOne &&
+                  item.saltinNoel.titleTwo
+              "
               class="myCodesWeb__table-text-content"
             >
               <p class="myCodesWeb__table-text-content-one">
@@ -63,7 +67,9 @@
           </div>
           <div class="myCodesWeb__table-content-element myCodesWeb__text-row">
             <div
-              v-if="item.ducales.titleOne && item.ducales.titleTwo"
+              v-if="
+                item.ducales && item.ducales.titleOne && item.ducales.titleTwo
+              "
               class="myCodesWeb__table-text-content"
             >
               <p class="myCodesWeb__table-text-content-one">
@@ -147,15 +153,18 @@ export default {
 
     &-one {
       font-size: 15px;
+      color: #253e87;
     }
 
     &-two {
       font-size: 10px;
       margin-bottom: 5px;
+      color: #253e87;
     }
 
     &-three {
       font-size: 14px;
+      color: #253e87;
     }
   }
 

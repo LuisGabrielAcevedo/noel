@@ -10,11 +10,9 @@
 
     <div class="box-wrapper-views-global myCodesMobile__margin-wrapper">
       <div class="myCodesMobile__title">
-        <h1 class="myCodesMobile__title-one">
-          ¡Bienvenido FELIPE TORRES ARÉVALO!
-        </h1>
+        <h1 class="myCodesMobile__title-one">¡Bienvenido {{ user.name }}!</h1>
         <h2 class="myCodesMobile__title-two">
-          Celular para premios: 316 233 4060
+          Celular para premios: {{ user.phone }}
         </h2>
         <h3 class="myCodesMobile__title-three">
           Éste es el estado de tus códigos:
@@ -22,51 +20,31 @@
       </div>
 
       <div class="myCodesMobile__content">
-        <div class="myCodesMobile__content-items myCodesMobile__boxItem">
+        <div
+          v-for="(item, index) in tableData"
+          :key="index"
+          class="myCodesMobile__content-items myCodesMobile__boxItem"
+        >
           <div class="myCodesMobile__content-items-header">
-            <span class="myCodesMobile__content-items-header-index">1</span>
+            <span class="myCodesMobile__content-items-header-index">{{
+              index + 1
+            }}</span>
             <p class="myCodesMobile__content-items-header-title">
-              Pareja Completa
+              {{ item.titleMobile }}
             </p>
           </div>
           <div class="myCodesMobile__content-items-content">
             <img
               class="myCodesMobile__content-items-content-image"
-              src="@/assets/mobile/Premio_celulares_mis_codigos_respons.png"
+              :src="item.image"
               alt="celular"
             />
             <div class="myCodesMobile__content-items-content-action">
               <p class="myCodesMobile__content-items-content-action-text">
-                ¡Ganaste celular!
+                {{ item.resultCouple }}
               </p>
               <img
-                @click="dialog = true"
-                class="myCodesMobile__content-items-content-action-arrow"
-                src="@/assets/mobile/Flecha_ir_detalle_codigo.png"
-                alt="flecha"
-              />
-            </div>
-          </div>
-        </div>
-        <div class="myCodesMobile__content-items myCodesMobile__boxItem">
-          <div class="myCodesMobile__content-items-header">
-            <span class="myCodesMobile__content-items-header-index">1</span>
-            <p class="myCodesMobile__content-items-header-title">
-              Pareja Completa
-            </p>
-          </div>
-          <div class="myCodesMobile__content-items-content">
-            <img
-              class="myCodesMobile__content-items-content-image"
-              src="@/assets/mobile/Premio_celulares_mis_codigos_respons.png"
-              alt="celular"
-            />
-            <div class="myCodesMobile__content-items-content-action">
-              <p class="myCodesMobile__content-items-content-action-text">
-                ¡Ganaste celular!
-              </p>
-              <img
-                @click="dialog = true"
+                @click="onClickElement(item)"
                 class="myCodesMobile__content-items-content-action-arrow"
                 src="@/assets/mobile/Flecha_ir_detalle_codigo.png"
                 alt="flecha"
@@ -76,7 +54,7 @@
         </div>
       </div>
     </div>
-    <modal width="600" :dialog="dialog">
+    <modal width="600" v-if="actualItem" :dialog="dialog">
       <div class="myCodesMobile__modal-content" slot="component">
         <div class="myCodesMobile__close-container">
           <img
@@ -93,31 +71,43 @@
         <div class="myCodesMobile__content-modal-content">
           <div class="myCodesMobile__content-modal-content-item">
             <img
-              class="myCodesMobile__content-modal-content-item-img"
-              src="@/assets/web/Taco_Saltin.png"
+              class="myCodesMobile__content-modal-content-item-img-left-padding"
+              :src="actualItem.saltinTacoImage"
               alt="Taco Saltin"
             />
             <div class="myCodesMobile__content-modal-content-item-text">
               <p class="myCodesMobile__content-modal-content-item-text-one">
-                ARFT5005
+                {{
+                  actualItem.saltinNoel
+                    ? actualItem.saltinNoel.titleOne
+                    : "SIN DATOS"
+                }}
               </p>
               <p class="myCodesMobile__content-modal-content-item-text-two">
-                14/06/2020
+                {{
+                  actualItem.saltinNoel
+                    ? actualItem.saltinNoel.titleTwo
+                    : "SIN DATOS"
+                }}
               </p>
             </div>
           </div>
           <div class="myCodesMobile__content-modal-content-item">
             <img
               class="myCodesMobile__content-modal-content-item-img"
-              src="@/assets/web/Taco_Saltin.png"
+              :src="actualItem.ducalesTacoImage"
               alt="Taco Saltin"
             />
             <div class="myCodesMobile__content-modal-content-item-text">
               <p class="myCodesMobile__content-modal-content-item-text-one">
-                ARFT5005
+                {{
+                  actualItem.ducales ? actualItem.ducales.titleOne : "SIN DATOS"
+                }}
               </p>
               <p class="myCodesMobile__content-modal-content-item-text-two">
-                14/06/2020
+                {{
+                  actualItem.ducales ? actualItem.ducales.titleTwo : "SIN DATOS"
+                }}
               </p>
             </div>
           </div>
@@ -138,9 +128,13 @@ export default {
   data() {
     return {
       dialog: false,
+      actualItem: null,
     };
   },
   mounted() {},
+  updated() {
+    console.log(this.actualItem);
+  },
   components: {
     Modal,
   },
@@ -157,10 +151,18 @@ export default {
     token() {
       return this.$store.getters.token;
     },
+    user() {
+      const { name, phone } = this.$store.state.user;
+      return { name: String(name).toUpperCase(), phone };
+    },
   },
   methods: {
     goTo(path) {
       if (this.$route.path !== `/${path}`) this.$router.push(path);
+    },
+    onClickElement(item) {
+      this.dialog = true;
+      this.actualItem = item;
     },
   },
   watch: {},
@@ -185,14 +187,17 @@ export default {
 
     &-one {
       font-size: 15px;
+      color: #253e87;
     }
 
     &-two {
       font-size: 15px;
+      color: #253e87;
     }
 
     &-three {
       font-size: 15px;
+      color: #253e87;
     }
   }
 
@@ -249,7 +254,7 @@ export default {
       flex-basis: 20%;
 
       @include mobile() {
-        height: 120px;
+        height: 110px;
       }
       @include xs() {
         height: 70px;
@@ -263,8 +268,12 @@ export default {
       justify-content: space-around;
       &-text {
         margin: 0px !important;
+        width: 80%;
+        margin-left: 10px !important;
+        color: #005aa7;
         @include mobile() {
           font-size: 15px;
+          width: 90%;
         }
         @include xs() {
           font-size: 14px;
@@ -338,17 +347,25 @@ export default {
         justify-content: space-between;
 
         &:first-of-type {
-          border-bottom: 1px dashed #ffca00;
+          border-bottom: 1px dashed #ffb000;
         }
         &-img {
           height: 50px;
           margin-right: 10px;
+
+          &-left-padding {
+            height: 50px;
+            margin-right: 10px;
+            margin-left: -5px !important;
+          }
         }
 
         &-text {
+          color: #253e87;
           display: flex;
           flex-direction: column;
           justify-content: center;
+          align-self: center;
           line-height: 15px;
           &-one {
             font-size: 15px;
