@@ -1,6 +1,24 @@
 <template>
   <div class="footer">
-    
+    <span>Noel - 2021</span>
+    <div class="footer__facebook-content">
+       <img
+        class="footer__facebook"
+        src="@/assets/web/ico_facebook.png"
+      />
+      <span class="footer__facebook-text">galletassaltinnoel</span>
+       <img
+        class="footer__facebook"
+        src="@/assets/web/ico_facebook.png"
+      />
+      <span class="footer__facebook-text">ToquesMagicosDucales</span>
+    </div>
+    <div>
+      <img
+        class="footer__coljuegos"
+        src="@/assets/web/Logo_coljuegos.png"
+      />
+    </div>
   </div>
 </template> 
 
@@ -25,10 +43,6 @@ export default {
     user() {
       return this.$store.getters.user;
     },
-    show() {
-      const idn = this.user.identification || this.user.idn;
-      return this.selectedRoute !== '/editar-cuenta' && this.user.name && idn
-    }
   },
   methods: {
     goTo(path) {
@@ -74,12 +88,30 @@ export default {
 <style lang="scss">
 @import "@/assets/scss/mixins.scss";
 .footer {
-   display: flex;
-   justify-content: space-between;
-   align-items: center;
-   height: 60px;
-   z-index: 3;
-   background: #131F45;
-   padding: 0 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+  z-index: 3;
+  background: #131F45;
+  padding: 0 100px;
+  color: white;
+  &__coljuegos {
+    height: 40px;
+    margin-top: 8px;
+  }
+  &__facebook {
+    height: 20px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  &__facebook-content {
+    display: flex;
+    align-items: center;
+  }
+  &__facebook-text {
+    margin-right: 20px;
+    cursor: pointer;
+  }
 }
 </style>
