@@ -183,6 +183,9 @@ export default {
     padding: 5px 50px;
     background: #005aa7;
     border-radius: 30px;
+    @include mobile() {
+      padding: 5px 10px;
+    }
 
     &-item {
       color: white;
@@ -190,6 +193,8 @@ export default {
       text-align: center;
 
       @include mobile() {
+        flex-basis: 50%;
+        /* padding: 5px 10px; */
         font-size: 12px;
       }
     }
@@ -201,8 +206,13 @@ export default {
     padding: 5px 50px;
     border-bottom: 1px dashed #fff581;
 
+    @include mobile() {
+      padding: 5px 10px;
+    }
+
     &:last-of-type {
       margin-bottom: 10px;
+      border-bottom: none;
     }
   }
 
@@ -212,6 +222,10 @@ export default {
 
   &__color-dark {
     color: #253e87;
+  }
+
+  &__reset-padding {
+    padding: 5px 10px;
   }
 
   &__winners-button {

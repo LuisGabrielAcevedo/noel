@@ -15,7 +15,7 @@
       />
     </div>
 
-    <div class="box-wrapper-views-global">
+    <div class="box-wrapper-views-global awards__margin">
       <div class="awards__contentBox">
         <h2 class="awards__contentBox-title">
           ¡Estos son los premios que tenemos para ti!
@@ -119,6 +119,10 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+
+  &__margin {
+    margin: 0px 15px;
+  }
 
   &__title {
     width: 100%;
