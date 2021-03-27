@@ -12,7 +12,7 @@
       <div class="myCodesMobile__title">
         <h1 class="myCodesMobile__title-one">¡Bienvenido {{ user.name }}!</h1>
         <h2 class="myCodesMobile__title-two">
-          Celular para premios: {{ user.phone }}
+          Celular para premios: {{ user.phone.slice(2, user.phone.length) }}
         </h2>
         <h3 class="myCodesMobile__title-three">
           Éste es el estado de tus códigos:
@@ -113,7 +113,7 @@
           </div>
           <div class="myCodesMobile__award">
             <p class="myCodesMobile__award-title">Premio:</p>
-            <p class="myCodesMobile__award-prime">¡GANASTE CELULAR!</p>
+            <p class="myCodesMobile__award-prime">{{ actualItem.result }}</p>
           </div>
         </div>
       </div>
@@ -340,6 +340,7 @@ export default {
     &-content {
       display: flex;
       flex-direction: column;
+      width: 90%;
 
       &-item {
         margin-top: 20px;
@@ -385,16 +386,18 @@ export default {
     background: #005aa7;
     color: white;
     margin-top: 10px;
-    border-radius: 10px;
-    padding: 5px 0px;
+    border-radius: 15px;
+    padding: 10px 0px;
 
     &-title {
       margin: 0px !important;
-      font-size: 14px;
+      font-size: 16px;
     }
 
     &-prime {
       margin: 0px !important;
+      text-transform: uppercase;
+      font-size: 16px;
     }
   }
 }

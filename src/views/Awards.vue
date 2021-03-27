@@ -28,7 +28,7 @@
               src="@/assets/mobile/Premio_compus_mis_codigos_respons.png"
               alt="Compu"
             />
-            <p class="awards__contentImage-title">COMPUTADORAS PORTATILES</p>
+            <p class="awards__contentImage-title">COMPUTADORES PORTÁTILES</p>
           </div>
 
           <div class="awards__contentImage">
@@ -58,7 +58,7 @@
               alt="Compu"
             />
             <p class="awards__contentImage-title awards__moveText">
-              TARJETAS DEBITO
+              TARJETAS DÉBITO
             </p>
           </div>
         </div>

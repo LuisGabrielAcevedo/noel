@@ -59,11 +59,11 @@
             >
               -
             </div>
-            <button class="myCodesWeb__table-btn-action">
+            <div class="myCodesWeb__table-btn-action">
               <p>
                 +
               </p>
-            </button>
+            </div>
           </div>
           <div class="myCodesWeb__table-content-element myCodesWeb__text-row">
             <div
@@ -85,9 +85,9 @@
             >
               -
             </div>
-            <button class="myCodesWeb__table-btn-action">
+            <div class="myCodesWeb__table-btn-action">
               <p>=</p>
-            </button>
+            </div>
           </div>
           <div class="myCodesWeb__table-content-element">
             <p
@@ -220,7 +220,7 @@ export default {
     }
 
     &-text-content {
-      margin-left: 20px;
+      margin-left: 15px;
       line-height: 14px;
       margin-right: 25px;
       margin-top: 5px;

@@ -87,7 +87,7 @@ export default {
       {
         name: "GANADORES",
         path: "/ganadores",
-        isVisible: () => true,
+        isVisible: () => this.token,
       },
       {
         name: "PREMIOS",

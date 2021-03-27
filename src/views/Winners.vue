@@ -6,14 +6,12 @@
       src="@/assets/web/Titulo_ganadores.png"
       alt="Ganadores titulo"
     />
-
     <img
       v-if="mobile"
       class="title-views-global__mobile"
       src="@/assets/mobile/Titulo_ganadores_respons.png"
       alt="Ganadores titulo"
     />
-
     <div class="box-wrapper-views-global winners__table">
       <div class="winners__table-header">
         <div class="winners__table-header-item">
@@ -22,7 +20,6 @@
         <div v-if="!mobile" class="winners__table-header-item">Ciudad</div>
         <div class="winners__table-header-item">Premio</div>
       </div>
-
       <div
         class="winners__table-content-row"
         v-for="(item, index) in tableWinners"
@@ -39,7 +36,6 @@
         </div>
       </div>
     </div>
-
     <button
       @click="dialog = true"
       v-if="tableWinners"
@@ -68,23 +64,24 @@
             <div v-if="!mobile" class="winners__table-header-item">Ciudad</div>
             <div class="winners__table-header-item">Premio</div>
           </div>
-
-          <div
-            class="winners__table-content-row"
-            v-for="(item, index) in tableWinnersModal"
-            :key="index"
-          >
-            <div class="winners__table-header-item winners__color">
-              {{ item.name }}
-            </div>
+          <div class="winners__wrapper-table-row">
             <div
-              v-if="!mobile"
-              class="winners__table-header-item winners__color"
+              class="winners__table-content-row"
+              v-for="(item, index) in tableWinnersModal"
+              :key="index"
             >
-              {{ item.city }}
-            </div>
-            <div class="winners__table-header-item winners__color-dark">
-              {{ item.result }}
+              <div class="winners__table-header-item winners__color">
+                {{ item.name }}
+              </div>
+              <div
+                v-if="!mobile"
+                class="winners__table-header-item winners__color"
+              >
+                {{ item.city }}
+              </div>
+              <div class="winners__table-header-item winners__color-dark">
+                {{ item.result }}
+              </div>
             </div>
           </div>
         </div>
@@ -164,15 +161,16 @@ export default {
   align-items: center;
   flex-direction: column;
 
+  &__wrapper-table-row {
+    height: 205px;
+    overflow: scroll !important;
+  }
+
   &__table {
     margin-top: 21px;
     flex: 1;
     width: 800px;
     padding: 0px !important;
-
-    &-modal {
-      overflow-y: scroll !important;
-    }
 
     @include mobile() {
       width: 92%;

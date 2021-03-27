@@ -48,11 +48,6 @@ export default {
       }
     },
     formatData(data) {
-      //computer
-      //charges
-
-      console.log(data);
-
       const newData = data.map((item, index) => {
         const saltinCodeEmpty = !item.code && "Saltín";
         const ducalesCodeEmpty = !item.code_2 && "Ducales";
@@ -66,6 +61,34 @@ export default {
           tacoDucales: require("@/assets/web/Taco_Ducales.png"),
           tacoSaltinDisabled: require("@/assets/mobile/taco_faltante_saltin-respons.png"),
           tacoDucalesDisabled: require("@/assets/mobile/taco_faltante_ducales_respons.png"),
+          bonus: require("@/assets/mobile/Premio_tarjetas_mis_codigos_respons.png"),
+          phone: require("@/assets/mobile/Premio_celulares_mis_codigos_respons.png"),
+          computer: require("@/assets/mobile/Premio_compus_mis_codigos_respons.png"),
+          charge: require("@/assets/mobile/Premio_recargas_mis_codigos_respons.png"),
+          none: require("@/assets/mobile/Pareja_incompleta_mis_codigos_respons.png"),
+        };
+
+        const strings = {
+          bonus: "¡T. REGALO!",
+          computer: "¡COMPUTADORA!",
+          charge: "¡RECARGA!",
+          none: "-",
+        };
+
+        const texts = {
+          bonus: `¡Ganaste tarjeta débito!`,
+          phone: `¡Ganaste celular!`,
+          computer: `¡Ganaste portátil!`,
+          charge: `¡Ganaste recarga!`,
+          none: `¡Esta vez no pudiste ganar!`,
+        };
+
+        const results = {
+          bonus: `¡Ganaste tarjeta débito!`,
+          phone: `¡Ganaste celular!`,
+          computer: `¡Ganaste portátil!`,
+          charge: `¡Ganaste recarga!`,
+          none: `¡SIGUE INTENTANDO!`,
         };
 
         return {
@@ -80,16 +103,20 @@ export default {
               titleOne: item.code_2,
               titleTwo: this.formatDate(item.ducales_at),
             },
-          award: item.code && item.code_2 ? item.result : "-",
+          award: item.code && item.code_2 ? strings[item.result] : "-",
           titleMobile:
             item.code && item.code_2 ? "Pareja Completa" : "Pareja Incompleta",
           resultCouple:
             item.code && item.code_2
-              ? "No"
+              ? texts[item.result]
               : `¡Te falta un código de ${emptyCode}!`,
           complete: item.code && item.code_2,
-          image: image["noComplete"],
-          prime: "",
+          image:
+            item.code && item.code_2 ? image[item.result] : image["noComplete"],
+          result:
+            item.code && item.code_2
+              ? results[item.result]
+              : "¡ingresa el código faltante y gana!",
           saltinTacoImage: item.code
             ? image["tacoSaltin"]
             : image["tacoSaltinDisabled"],

@@ -67,6 +67,7 @@ const routes = [
     name: "winners",
     path: "/ganadores",
     component: Winners,
+    beforeEnter: authGuard,
   },
   {
     path: "*",
