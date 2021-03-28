@@ -1,5 +1,5 @@
 <template>
-  <div class="textarea" :style="{'width': label ? '360px': '300px'}">
+  <div class="textarea">
     <div class="textarea__main-box">
         <div class="textarea__label-container" v-if="label">
           <span class="textarea__label">
@@ -141,15 +141,14 @@ export default {
       border-style: none;
       background-color: white;
       width: 100%;
-      height: 34px;
+      height: 100px;
       border-radius: 18px;
       font-size: 14px;
-      padding: 2px 10px;
+      padding: 6px 10px;
       text-align: center;
       font-family: MontserratItalic !important;
       @include mobile() {
         font-size: 14px;
-        height: 38px;
       }
     }
     textarea:focus {
@@ -162,7 +161,7 @@ export default {
       line-height: 11px !important;
       padding: 3px 0 0 10px;
     }
-   &__error {
+    &__error {
       color: #253E87;
       font-family: NexaBold;
       font-size: 11px;
@@ -180,9 +179,11 @@ export default {
     }
     &__label {
         margin-left: 10px;
-        font-family: BebasNeue;
-        color: white;
+        font-family: NexaBold;
         margin-right: 10px;
+        font-size: 12px;
+        color: #253E87;
+        margin-bottom: 6px;
         @include mobile() {
           text-align: center;
         }
@@ -194,5 +195,4 @@ export default {
       color: #E31552;
     }
 }
-
 </style>

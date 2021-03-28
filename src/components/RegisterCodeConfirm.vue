@@ -122,12 +122,10 @@ export default {
       return this.ducales && this.ducales === "saved";
     },
     awardSaltin() {
-      console.log(["charge", "computer", "none"].includes(this.saltin))
-      return ["charge", "computer", "none"].includes(this.saltin);
+      return ["charge", "computer", "bonus", "phone", "none"].includes(this.saltin);
     },
     awardDucales() {
-      console.log(["charge", "computer", "none"].includes(this.ducales))
-      return ["charge", "computer", "none"].includes(this.ducales);
+      return ["charge", "computer", "bonus","phone", "none"].includes(this.ducales);
     },
     mobile() {
       return this.$store.getters.mobile;

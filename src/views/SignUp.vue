@@ -4,7 +4,7 @@
         <div class="title-views-global">
           <img
             v-if="!mobile"
-            class="title-views-global__web"
+            class="title-views-global__web signUp__title"
             src="@/assets/web/Titulo_registro_usuario.png"
             alt="Como participar titulo"
           />
@@ -21,9 +21,10 @@
             :model="user.name"
             @close-all="
               $refs.operator.open = false;
+              $refs.department_state.open = false;
             "
             field="name"
-            label="NOMBRE COMPLETO"
+            label="Nombre Completo*"
             @handle-input="setValue($event)"
             placeholder="Ingresar nombre completo"
             :required="true"
@@ -34,8 +35,9 @@
             field="email"
             @close-all="
               $refs.operator.open = false;
+              $refs.department_state.open = false;
             "
-            label="CORREO ELECTRÓNICO"
+            label="Correo Electrónico*"
             @handle-input="setValue($event)"
             placeholder="Ingresar correo electrónico"
             :required="true"
@@ -44,27 +46,26 @@
         </div>
         <div class="signUp__form-row">
           <Input
-            label="CÉDULA"
+            label="Cédula"
             field="idn"
             @close-all="
               $refs.operator.open = false;
+              $refs.department_state.open = false;
             "
             :model="user.idn"
             @handle-input="setValue($event)"
-            placeholder="Ingresar nº de cédula"
+            placeholder="Ingresa nº de cédula"
             :required="true"
             :error="errors.idn"
             :onlyNumbers="true"
           />
           <Select
-              class="mb-3 spacer-2"
-              style="margin-bottom: 0px !important;"
               ref="department_state"
               @close-all="$refs.operator.open = false"
               field="department_state"
-              label="Departamento"
+              label="Seleccionar ciudad"
               :model="user.department_state"
-              placeholder="Seleccionar Departamento"
+              placeholder="Seleccionar ciudad"
               :items="fomattedStates"
               @handle-input="setValue($event)"
               :required="true"
@@ -74,27 +75,26 @@
           <div class="signUp__form-row">
             <Input
               field="phone"
-              label="CELULAR"
+              label="Celular"
               :model="user.phone"
               @close-all="
                 $refs.operator.open = false;
+                $refs.department_state.open = false;
               "
               @handle-input="setValue($event)"
-              placeholder="Ingresar nº celular"
+              placeholder="Ingresa nº celular"
               :required="true"
               :error="errors.phone"
               maxlength="10"
               :onlyNumbers="true"
             />
             <Select
-              class="mb-3 spacer-2"
-              style="margin-bottom: 0px !important;"
               ref="operator"
               field="operator"
               @close-all="$refs.department_state.open = false"
               label="Operador"
               :model="user.operator"
-              placeholder="Seleccionar Operador"
+              placeholder="Seleccionar operador"
               :items="fomattedOperators"
               @handle-input="setValue($event)"
               :required="true"
@@ -366,8 +366,12 @@ export default {
 .signUp {
   display: flex;
   justify-content: center;
-  padding: 20px 0 70px 0;
+  padding: 10px 0 70px 0;
   position: relative;
+  &__title{
+    margin-top: 10px !important;
+    height: 60px !important;
+  }
   @include mobile() {
     flex-direction: column;
     align-items: center;
@@ -380,7 +384,7 @@ export default {
     flex-direction: column;
     align-items: center;
     border-radius: 20px;
-    padding: 10px 20px 10px 20px;
+    padding: 0 20px 10px 20px;
     @include mobile() {
       width: 92%;
       padding-bottom: 20px;

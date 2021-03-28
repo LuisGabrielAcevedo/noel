@@ -86,6 +86,43 @@
         class="enterCode-mobile__title"
         src="@/assets/web/Titulo_bienvenido.png"
       />
+      <span class="enterCode-web__mini-text">
+        Ingresa aquí los códigos que encontraste en los stickers dentro de los empaques de Saltín Noel y Ducales.
+      </span>
+      <img
+        class="enterCode-mobile__mini"
+        src="@/assets/mobile/img_ejemplo_ingresar_cod_respons.png"
+      />
+      <Input
+        :field="'code'"
+        :model="code"
+        maxlength="9"
+        :error="errors.code"
+        @handle-input="setValue($event)"
+        placeholder="Ingresar tu código aquí"
+      />
+      <span class="enterCode-web__mini-text other">Recuerda guardar los stickers que registraste.</span>
+      <div  class="enterCode-web__rec">
+          <vue-recaptcha
+            sitekey="6LeepLgZAAAAAOEFbUH1LNlh-gpy4OfKV4zTIuoK"
+            :loadRecaptchaScript="true"
+            @verify="verifyRecaptcha"
+            @expired="expiredRecaptcha"
+            class="mb-1"
+            language="es"
+            ref="recaptcha"
+          ></vue-recaptcha>
+        </div>
+      <div>
+        <Button text="Registrar Código" type="primary" @handle-click="send()"/>
+      </div>
+      <div class="enterCode-mobile__counter-content">
+        <img
+          class="enterCode-mobile__counter"
+          src="@/assets/mobile/Premios_disponibles_respons.png"
+        />
+        <span class="enterCode-mobile__counter-text">{{total}}</span>
+      </div>
     </div>
     <modal :dialog="dialog" @close="dialog = false;reset();" 
       width="550">
@@ -129,7 +166,8 @@ export default {
         saltinMsg: "",
         ducalesMsg: ""
       },
-      dialog: false
+      dialog: false, 
+      code: ''
     };
   },
   components: {
@@ -155,7 +193,10 @@ export default {
       this.verifyCatptcha()
        if (this.saltin || this.ducales) {
         if (this.recaptchaCode) {
-          this.save(this.saltin, this.ducales);
+          this.save(
+            this.mobile ? this.code : this.saltin,
+            this.mobile ? this.code : this.ducales
+          );
         } else {
           this.$store.dispatch("setAlert", {
           buttonLabel: "Aceptar",
@@ -189,20 +230,24 @@ export default {
             ducalesMsg: resp.data.ducales.message
           };
           this.dialog = true;
+          this.$refs.recaptcha.reset()
+          this.recaptchaCode = null;
           this.$store.dispatch("loadBalance");
           this.ducales = "";
           this.saltin = "";
+          this.code = ""
         })
         .catch((err) => {
           if (err.response.status !== 401) {
             this.ducales = "";
             this.saltin = "";
+            this.code = ""
             this.loading = false;
             this.$store.dispatch("setAlert", {
             buttonLabel: "Aceptar",
             type:'INFO',
             showClose: true,
-            message: err.response.data.message.mensaje || "",
+            message: err.response.data.message.mensaje || "Error en el servicio.",
           });
           }
         });
@@ -215,6 +260,7 @@ export default {
     },
     setValue(e) {
       e.key === "saltin" ? (this.saltin = e.value) : (this.ducales = e.value);
+      this.code = e.value;
     },
     verifyCatptcha() {
       if (this.count === 3) {
@@ -307,6 +353,10 @@ export default {
     color: #253E87;
     font-size: 16px;
     line-height: 20px;
+    @include mobile(){
+      text-align: center;
+      font-size: 14px;
+    }
   }
   &__more {
     height: 40px;
@@ -315,8 +365,32 @@ export default {
 }
 
 .enterCode-mobile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 20px;
   &__title {
     height: 50px;
+  }
+  &__mini {
+    height: 100px;
+    margin-bottom: 10px;
+  }
+  &__counter{
+    width: 90%;
+  }
+  .other {
+    margin-top: -34px;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  &__counter-content {
+    position: relative;
+  }
+  &__counter-text {
+    position: absolute;
+    bottom: 28px;
+    right: 86px;
   }
 }
 

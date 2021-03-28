@@ -145,7 +145,7 @@ export default {
     height: 34px;
     border-radius: 18px;
     font-size: 17px;
-    padding: 4px 10px;
+    padding: 2px 10px;
     cursor: pointer;
     position: relative;
     @include mobile() {

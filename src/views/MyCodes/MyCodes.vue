@@ -72,6 +72,7 @@ export default {
           bonus: "¡T. REGALO!",
           computer: "¡COMPUTADORA!",
           charge: "¡RECARGA!",
+          phone: '¡CELULAR!',
           none: "-",
         };
 
