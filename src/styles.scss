@@ -23,6 +23,11 @@ body {
   src: url("assets/fonts/Montserrat-Italic.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "MontserratRegular";
+  src: url("assets/fonts/Montserrat-Regular.ttf") format("truetype");
+}
+
 .title-views-global {
   width: 100%;
   text-align: center;

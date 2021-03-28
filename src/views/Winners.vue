@@ -57,14 +57,14 @@
           src="@/assets/web/Logo_promo_que_nos_une_modales.png"
         />
         <div class=" winners__table winners__table-modal">
-          <div class="winners__table-header">
+          <div class="winners__table-header" style="margin-right: 20px;">
             <div class="winners__table-header-item">
               {{ mobile ? "Nombre" : "Nombre del Participante" }}
             </div>
             <div v-if="!mobile" class="winners__table-header-item">Ciudad</div>
             <div class="winners__table-header-item">Premio</div>
           </div>
-          <div class="winners__wrapper-table-row">
+          <div class="winners__wrapper-table-row" style="padding-right: 20px;">
             <div
               class="winners__table-content-row"
               v-for="(item, index) in tableWinnersModal"
@@ -161,18 +161,19 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
   &__wrapper-table-row {
-    height: 205px;
-    overflow: scroll !important;
+    height: 220px;
+    overflow-y: auto;
+    @include mobile() {
+      height: 250px;
+    }
   }
 
   &__table {
-    margin-top: 21px;
+    margin-top: 10px;
     flex: 1;
     width: 800px;
     padding: 0px !important;
-
     @include mobile() {
       width: 92%;
     }
@@ -249,6 +250,7 @@ export default {
     min-height: 300px;
     padding: 10px 20px;
     height: 400px;
+    margin-bottom: 20px;
     @include mobile() {
       padding: 10px;
     }
@@ -256,8 +258,6 @@ export default {
   &__image {
     height: 220px;
     margin-top: -100px;
-    margin-bottom: 10px;
-
     @include mobile() {
       height: 160px;
       margin-top: -80px;
@@ -276,6 +276,22 @@ export default {
     @include mobile() {
       height: 28px;
     }
+  }
+  /* width */
+  ::-webkit-scrollbar {
+    width: 8px !important;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background-color: #FFFFFF !important;
+    border-radius: 10px !important;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: white !important;
+    border: 1px solid black;
   }
 }
 </style>

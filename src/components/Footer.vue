@@ -1,19 +1,23 @@
 <template>
   <div class="footer">
-    <span>Noel - 2021</span>
+    <span class="footer__text" v-if="!token">Noel - 2021</span>
     <div class="footer__facebook-content">
-       <img
+      <img
+        @click="gotoSaltin()"
         class="footer__facebook"
         src="@/assets/web/ico_facebook.png"
       />
-      <span class="footer__facebook-text">galletassaltinnoel</span>
+      <span class="footer__facebook-text" @click="gotoSaltin()">galletassaltinnoel</span>
        <img
+        @click="gotoDucales()"
         class="footer__facebook"
         src="@/assets/web/ico_facebook.png"
       />
-      <span class="footer__facebook-text">ToquesMagicosDucales</span>
+      <span class="footer__facebook-text" @click="gotoDucales()">ToquesMagicosDucales</span>
     </div>
-    <div>
+    <div class="footer__routes">
+      <span v-if="token" style="margin: 20px" class="footer__text cp" @click="gotoContacts()">Contáctanos</span>
+      <span v-if="token"  style="margin: 20px" class="footer__text cp" @click="gotoTerms()">Términos y Condiciones</span>
       <img
         class="footer__coljuegos"
         src="@/assets/web/Logo_coljuegos.png"
@@ -54,24 +58,18 @@ export default {
     gotoTerms() {
       this.$store.dispatch("setTermsAndConditions", true);
     },
-    gotoYoutube() {
+    gotoSaltin() {
       window.open(
-        `https://yupi.com.co/`,
+        `https://www.facebook.com/galletassaltinnoel/?epa=SEARCH_BOX`,
         "_blank"
       );
     },
-    gotoInstagram() {
+    gotoDucales() {
       window.open(
-        `https://yupi.com.co/`,
+        `https://www.facebook.com/ToquesMagicosDucales/`,
         "_blank"
       );
     },
-    gotoFacebook() {
-      window.open(
-        `https://yupi.com.co/`,
-        "_blank"
-      );
-    }
   },
   watch: {
     "$route.path": {
@@ -91,13 +89,12 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 60px;
+  height: 52px;
   z-index: 3;
-  background: #131F45;
+  background-color: #131F45;
   padding: 0 100px;
-  color: white;
   &__coljuegos {
-    height: 40px;
+    height: 52px;
     margin-top: 8px;
   }
   &__facebook {
@@ -110,8 +107,22 @@ export default {
     align-items: center;
   }
   &__facebook-text {
+    color: white;
+    font-size: 13px;
     margin-right: 20px;
     cursor: pointer;
+  }
+  &__text {
+    font-size: 13px;
+    color: white;
+    text-align: center;
+  }
+  .cp {
+    cursor: pointer;
+  }
+  &__routes {
+    display: flex;
+    align-items: center;
   }
 }
 </style>

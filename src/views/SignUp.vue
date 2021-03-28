@@ -366,7 +366,7 @@ export default {
 .signUp {
   display: flex;
   justify-content: center;
-  padding: 10px 0 70px 0;
+  padding: 10px 0;
   position: relative;
   &__title{
     margin-top: 10px !important;
@@ -443,8 +443,8 @@ export default {
   }
   &__radio-text {
     color: #253E87;
-    font-family: BebasNeue;
-    font-size: 14px;
+    font-family: MontserratRegular;
+    font-size: 13px;
   }
   &__radio-text-action {
     color: #253E87;
@@ -453,7 +453,7 @@ export default {
   &__radio-container {
     display: flex;
     align-content: center;
-    margin-bottom: 10px;
+    margin-bottom: 6px;
     width: 360px;
     @include mobile() {
       width: 100%;

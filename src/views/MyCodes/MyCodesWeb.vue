@@ -8,7 +8,7 @@
       />
     </div>
 
-    <div class="box-wrapper-views-global">
+    <div class="box-wrapper-views-global myCodesWeb__content">
       <div class="myCodesWeb__title">
         <h1 class="myCodesWeb__title-one">
           ¡Bienvenido FELIPE TORRES ARÉVALO!
@@ -141,6 +141,10 @@ export default {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  &__content {
+    padding-bottom: 10px !important;
+    margin-bottom: 10px !important;
+  }
 
   &__title {
     margin-top: 10px;
