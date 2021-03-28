@@ -161,6 +161,7 @@ export default {
       if (this.$route.path !== `/${path}`) this.$router.push(path);
     },
     onClickElement(item) {
+      console.log("actual", item);
       this.dialog = true;
       this.actualItem = item;
     },

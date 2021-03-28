@@ -39,11 +39,7 @@
           </div>
           <div class="myCodesWeb__table-content-element myCodesWeb__text-row">
             <div
-              v-if="
-                item.saltinNoel &&
-                  item.saltinNoel.titleOne &&
-                  item.saltinNoel.titleTwo
-              "
+              v-if="item.saltinNoel && item.saltinNoel.titleOne"
               class="myCodesWeb__table-text-content"
             >
               <p class="myCodesWeb__table-text-content-one">
@@ -67,9 +63,7 @@
           </div>
           <div class="myCodesWeb__table-content-element myCodesWeb__text-row">
             <div
-              v-if="
-                item.ducales && item.ducales.titleOne && item.ducales.titleTwo
-              "
+              v-if="item.ducales && item.ducales.titleOne"
               class="myCodesWeb__table-text-content"
             >
               <p class="myCodesWeb__table-text-content-one">
@@ -108,7 +102,9 @@ export default {
   data() {
     return {};
   },
-  mounted() {},
+  mounted() {
+    console.log("actual2", this.tableData[1]);
+  },
   components: {},
   props: {
     tableData: {

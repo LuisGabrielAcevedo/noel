@@ -48,6 +48,7 @@ export default {
       }
     },
     formatData(data) {
+      console.log(data);
       const newData = data.map((item, index) => {
         const saltinCodeEmpty = !item.code && "Saltín";
         const ducalesCodeEmpty = !item.code_2 && "Ducales";
@@ -66,13 +67,15 @@ export default {
           computer: require("@/assets/mobile/Premio_compus_mis_codigos_respons.png"),
           charge: require("@/assets/mobile/Premio_recargas_mis_codigos_respons.png"),
           none: require("@/assets/mobile/Pareja_incompleta_mis_codigos_respons.png"),
+          pending_saltin: require("@/assets/mobile/Pareja_incompleta_mis_codigos_respons.png"),
+          pending_ducales: require("@/assets/mobile/Pareja_incompleta_mis_codigos_respons.png"),
         };
 
         const strings = {
           bonus: "¡T. REGALO!",
           computer: "¡COMPUTADORA!",
           charge: "¡RECARGA!",
-          phone: '¡CELULAR!',
+          phone: "¡CELULAR!",
           none: "-",
         };
 
@@ -91,19 +94,22 @@ export default {
           charge: `¡Ganaste recarga!`,
           none: `¡SIGUE INTENTANDO!`,
         };
-
+        index === 1 && console.log("este", item);
+        index === 1 &&
+          console.log(
+            "aqui",
+            item.code && item.code_2 ? strings[item.result] : "-"
+          );
         return {
           cant: index + 1,
-          saltinNoel: item.code &&
-            item.saltin_at && {
-              titleOne: item.code,
-              titleTwo: this.formatDate(item.saltin_at),
-            },
-          ducales: item.code_2 &&
-            item.ducales_at && {
-              titleOne: item.code_2,
-              titleTwo: this.formatDate(item.ducales_at),
-            },
+          saltinNoel: item.code && {
+            titleOne: item.code,
+            titleTwo: item.saltin_at ? this.formatDate(item.saltin_at) : "",
+          },
+          ducales: item.code_2 && {
+            titleOne: item.code_2,
+            titleTwo: item.ducales_at ? this.formatDate(item.ducales_at) : "",
+          },
           award: item.code && item.code_2 ? strings[item.result] : "-",
           titleMobile:
             item.code && item.code_2 ? "Pareja Completa" : "Pareja Incompleta",
@@ -126,6 +132,7 @@ export default {
             : image["tacoDucalesDisabled"],
         };
       });
+      console.log(newData);
       return newData;
     },
   },
