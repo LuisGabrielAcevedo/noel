@@ -1,16 +1,16 @@
 <template>
   <div class="termsAndConditions">
     <div class="termsAndConditions__close-container">
-      <!-- <img
+      <img
         @click="close()"
         class="termsAndConditions__close-image"
         src="@/assets/web/btn_cerrar.png"
-      /> -->
+      />
     </div>
-    <!-- <img
+    <img
       class="termsAndConditions__image"
-      src="@/assets/web/logo_hinchas.png"
-    /> -->
+      src="@/assets/web/Logo_promo_que_nos_une_modales.png"
+    />
     <div class="termsAndConditions__content">
       <div class="termsAndConditions__box">
         <div class="termsAndConditions__scroll">
@@ -51,28 +51,6 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  &__image {
-    height: 120px;
-    margin-top: -40px;
-    margin-bottom: 10px;
-    @include mobile() {
-      height: 80px;
-      margin-top: -20px;
-    }
-  }
-  &__close-container {
-    display: flex;
-    justify-content: flex-end;
-    width: 100%;
-    padding: 10px;
-  }
-  &__close-image {
-    height: 30px;
-    cursor: pointer;
-    @include mobile() {
-      height: 20px;
-    }
-  }
   &__content {
     width: 100%;
     height: 300px;
@@ -108,13 +86,28 @@ export default {
     line-height: 16px;
     text-align: justify;
   }
-  &__image-content {
-    display: flex;
-    justify-content: center;
+  &__image {
+    height: 220px;
+    margin-top: -100px;
+    margin-bottom: 10px;
+    @include mobile() {
+      height: 160px;
+      margin-top: -80px;
+    }
   }
-  &__image1 {
-    margin: 10px;
+  &__close-container {
+    display: flex;
+    justify-content: flex-end;
     width: 100%;
+    padding: 10px;
+    margin-top: -56px;
+  }
+  &__close-image {
+    height: 30px;
+    cursor: pointer;
+    @include mobile() {
+      height: 28px;
+    }
   }
 }
 </style>
