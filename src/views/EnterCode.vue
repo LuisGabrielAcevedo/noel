@@ -289,12 +289,12 @@ export default {
     align-items: center;
   }
   &__logo {
-    height: 360px;
+    height: 340px;
     margin-top: -40px;
   }
   &__counter-content {
     position: relative;
-    margin-top: -50px;
+    margin-top: -20px;
   }
   &__counter-text {
     position: absolute;
@@ -377,7 +377,7 @@ export default {
     margin-bottom: 10px;
   }
   &__counter{
-    width: 90%;
+    height: 80px;
   }
   .other {
     margin-top: -34px;
@@ -389,8 +389,8 @@ export default {
   }
   &__counter-text {
     position: absolute;
-    bottom: 28px;
-    right: 86px;
+    bottom: 31px;
+    right: 60px;
   }
 }
 

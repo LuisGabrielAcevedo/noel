@@ -138,6 +138,7 @@ export default {
       const strings = {
         bonus: "Tarjeta Regalo",
         computer: "Computador",
+        phone: 'Celular',
         charge: "Recarga",
       };
       const dataTable = data.map(item => ({
