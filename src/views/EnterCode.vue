@@ -67,7 +67,7 @@
         </span>
         <div  class="enterCode-web__rec">
           <vue-recaptcha
-            sitekey="6LeepLgZAAAAAOEFbUH1LNlh-gpy4OfKV4zTIuoK"
+            sitekey=" 6Lfh6Y4aAAAAAI-8nSMl7mVqcaetUMQC9ZCDoqvK"
             :loadRecaptchaScript="true"
             @verify="verifyRecaptcha"
             @expired="expiredRecaptcha"
@@ -104,7 +104,7 @@
       <span class="enterCode-web__mini-text other">Recuerda guardar los stickers que registraste.</span>
       <div  class="enterCode-web__rec">
           <vue-recaptcha
-            sitekey="6LeepLgZAAAAAOEFbUH1LNlh-gpy4OfKV4zTIuoK"
+            sitekey=" 6Lfh6Y4aAAAAAI-8nSMl7mVqcaetUMQC9ZCDoqvK"
             :loadRecaptchaScript="true"
             @verify="verifyRecaptcha"
             @expired="expiredRecaptcha"
