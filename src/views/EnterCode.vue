@@ -155,7 +155,7 @@ export default {
     return {
       loading: false,
       errors: {},
-      recaptchaCode: 'err',
+      recaptchaCode: '',
       count: 0, 
       ducales: "",
       saltin: "",
