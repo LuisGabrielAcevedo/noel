@@ -1,5 +1,10 @@
 <template>
   <div class="signUp">
+      <div class="back-content" @click="goTo('/ingresar')">
+        <div class="back">
+          <span class="back-text">Volver</span>
+        </div>
+      </div>
       <div class="signUp__content">
         <div class="title-views-global">
           <img
@@ -368,6 +373,8 @@ export default {
   justify-content: center;
   padding: 10px 0;
   position: relative;
+  flex-direction: column;
+  align-items: center;
   &__title{
     margin-top: 10px !important;
     height: 60px !important;

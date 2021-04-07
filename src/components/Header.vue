@@ -139,7 +139,7 @@ export default {
       {
         name: "Términos y Condiciones",
         path: "/terminos-y-condiciones",
-        isVisible: () => !this.token,
+        isVisible: () => !this.token || this.mobile,
         clickAction: () => this.$store.dispatch("setTermsAndConditions", true),
       },
       {

@@ -56,3 +56,21 @@ body {
     padding: 0px 0px;
   }
 }
+
+.back-content {
+  width: 100%;
+  display: flex;
+  padding: 0 40px;
+  margin-top: -10px;
+}
+.back {
+  background: radial-gradient(#253e87, #131f44);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin-bottom: 10px;
+  padding: 4px;
+}
+.back-text{
+  color: white;
+  font-size: 14px;
+}
