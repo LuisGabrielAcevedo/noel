@@ -89,12 +89,12 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 52px;
+  height: 46px;
   z-index: 3;
   background-color: #131F45;
   padding: 0 100px;
   &__coljuegos {
-    height: 52px;
+    height: 46px;
     margin-top: 8px;
   }
   &__facebook {

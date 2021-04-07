@@ -102,53 +102,53 @@ export default {
   mounted() {
     this.routes = [
       {
-        name: "INICIAR SESIÓN",
+        name: "Iniciar Sesión",
         path: "/ingresar",
         isVisible: () => !this.token,
       },
       {
-        name: "REGISTRARME",
+        name: "Registrarme",
         path: "/registrarse",
         isVisible: () => !this.token && this.mobile,
       },
       {
-        name: "INGRESAR CÓDIGO",
+        name: "Ingresar código",
         path: "/ingresar-codigo",
         isVisible: () => this.token,
       },
       {
-        name: "¿CÓMO PARTICIPAR?",
+        name: "Cómo Participar",
         path: "/como-particiar",
         isVisible: () => true,
       },
       {
-        name: "GANADORES",
+        name: "Ganadores",
         path: "/ganadores",
         isVisible: () => this.token,
       },
       {
-        name: "PREMIOS",
+        name: "Premios",
         path: "/premios",
         isVisible: () => true,
       },
       {
-        name: "MIS CODIGOS",
+        name: "Mis Códigos",
         path: "/mis-codigos",
         isVisible: () => this.token,
       },
       {
-        name: "TÉRMINOS Y CONDICIONES",
+        name: "Términos y Condiciones",
         path: "/terminos-y-condiciones",
         isVisible: () => !this.token,
         clickAction: () => this.$store.dispatch("setTermsAndConditions", true),
       },
       {
-        name: "CONTÁCTENOS",
+        name: "Contáctanos",
         path: "/contactenos",
         isVisible: () => this.token && this.mobile,
       },
       {
-        name: "CERRAR SESIÓN",
+        name: "Cerrar Sesión",
         clickAction: () => {
           this.logout();
         },
@@ -227,11 +227,14 @@ export default {
   padding: 0 80px;
   margin: 0 10px;
   margin-top: 10px;
+  @include tablet() {
+    padding: 0 40px;
+  }
   @include mobile() {
     padding: 0 20px;
   }
   &__logo {
-    height: 50px;
+    height: 60px;
     cursor: pointer;
     @include mobile() {
       height: 40px;
@@ -245,6 +248,10 @@ export default {
     display: flex;
     justify-content: space-between;
     padding: 0 20px;
+    margin-left: 60px;
+    @include tablet() {
+      margin-left: 20px;
+    }
   }
   &__web-route {
     cursor: pointer;
@@ -341,7 +348,7 @@ export default {
 }
 
 .container-routes-mobile {
-  margin-top: 10px;
+  margin-top: 20px;
   height: 100%;
   display: flex;
   flex-direction: column;

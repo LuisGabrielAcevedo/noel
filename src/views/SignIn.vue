@@ -18,7 +18,7 @@
             maxlength="10"
           />
         <div class="signIn__section1-button">
-           <Button text="Ingresar" type="primary" @handle-click="signIn()"/>
+           <Button text="Ingresar" type="primary" :isLoading="loading"  @handle-click="signIn()"/>
         </div>
       </div>
       <div class="signIn__line">
@@ -80,14 +80,13 @@ export default {
               this.$store.dispatch("loadBalance");
               this.goTo("/ingresar-codigo");
             })
-            .catch((err) => {
-              console.log(err)
+            .catch(() => {
               this.loading = false;
               this.$store.dispatch("setAlert", {
                 buttonLabel: "Aceptar",
                 showClose: true,
                 type:'INFO',
-                message: "¡El número ingresado no se encuentra registrado!.",
+                message: "¡El número de cédula ingresado no se encuentra registrado!",
               });
             });
         }

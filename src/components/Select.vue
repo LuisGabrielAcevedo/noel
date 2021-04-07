@@ -18,7 +18,7 @@
             <i class="fas fa-caret-down select__icon"></i>
           </span>
           <div v-if="open" class="select__pre-box">
-            <div class="select__box" :class="{ select__scroll: items.length > 6 }">
+            <div class="select__box" :class="{ 'select__scroll': items.length > 5 }">
               <span
                 @click.stop="select(item)"
                 class="select__option"
@@ -105,9 +105,7 @@ export default {
       }
     },
     open: {
-      handler(newVal) {
-        console.log(newVal)
-      }
+      handler() {}
     }
   }
 };
@@ -196,7 +194,7 @@ export default {
     flex-direction: column;
   }
   &__scroll {
-    max-height: 200px;
+    max-height: 140px;
     overflow-y: scroll;
   }
   &__option {

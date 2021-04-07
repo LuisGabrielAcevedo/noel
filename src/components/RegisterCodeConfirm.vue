@@ -69,9 +69,12 @@
     </div>
 
     <div class="signup-confirm__buttons">
-      <Button text="Aceptar" type="primary" @handle-click="close()"/>
+      <div style="margin-bottom: 10px">
+        <Button text="Aceptar" type="primary" @handle-click="close()"/>
+      </div>
+      
       <Button 
-        v-if="(savedSaltin && !awardDucales) || (savedDucales && !awardSaltin)" 
+        v-if="(savedSaltin && !awardDucales) || (savedDucales && !awardSaltin)"
         text="Ver mis códigos" 
         type="secondary" 
         @handle-click="goToMyCodes()"/>

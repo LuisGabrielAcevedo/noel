@@ -121,7 +121,7 @@ export default {
     height: 400px;
 
     &-mobile {
-      width: 100%;
+      height: 640px;
     }
   }
 }

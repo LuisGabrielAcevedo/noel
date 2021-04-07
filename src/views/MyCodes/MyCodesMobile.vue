@@ -282,7 +282,7 @@ export default {
       }
 
       &-arrow {
-        height: 20px;
+        height: 40px;
       }
     }
   }

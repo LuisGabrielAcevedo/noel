@@ -28,7 +28,7 @@
       <div style="margin-bottom: 10px">  
         <Button text="Editar Datos" type="secondary" @handle-click="close()" />
       </div>
-      <Button text="Registrarme" type="primary" @handle-click="preRegister()"/>
+      <Button text="Registrarme" type="primary" :isLoading="loading"  @handle-click="preRegister()"/>
     </div>
   </div>
 </template>
@@ -75,7 +75,7 @@ export default {
       this.loading = true;
       this.edit ? this.update() : this.register();
     },
-    capitalize(val, onlyFirstLetter = false) {
+    capitalize(val, onlyFirstLetter = true) {
       const replacer = match => match.toUpperCase()
       if (typeof val !== 'string') return ''
       const acronymRegex = /(([a-zA-Z]\.){2,})/g
@@ -86,7 +86,7 @@ export default {
       return capitalized.replace(acronymRegex, replacer)
     },
     register() {
-      Register({ ...this.user, adult_registration: 1 })
+      Register({ ...this.user, adult_registration: 1, name: this.capitalize(this.user.name) })
         .then(resp => {
           this.loading = false;
           this.closeSuccess(resp);
@@ -110,7 +110,7 @@ export default {
         });
     }, 
     update() {
-      UpdateUser({ ...this.user, adult_registration: 1 })
+      UpdateUser({ ...this.user, adult_registration: 1, name: this.capitalize(this.user.name) })
         .then(resp => {
           this.loading = false;
           this.closeSuccess(resp);

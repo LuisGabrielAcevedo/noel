@@ -11,7 +11,7 @@
             class="enterCode-web__counter"
             src="@/assets/web/Contador_premios.png"
           />
-          <span class="enterCode-web__counter-text">{{total}}</span>
+          <span class="enterCode-web__counter-text">{{total | amount}}</span>
         </div>
       </div>
       <div class="enterCode-web__section-2">
@@ -121,7 +121,7 @@
           class="enterCode-mobile__counter"
           src="@/assets/mobile/Premios_disponibles_respons.png"
         />
-        <span class="enterCode-mobile__counter-text">{{total}}</span>
+        <span class="enterCode-mobile__counter-text">{{total | amount}}</span>
       </div>
     </div>
     <modal :dialog="dialog" @close="dialog = false;reset();" 
@@ -155,7 +155,7 @@ export default {
     return {
       loading: false,
       errors: {},
-      recaptchaCode: null,
+      recaptchaCode: 'err',
       count: 0, 
       ducales: "",
       saltin: "",
@@ -176,6 +176,17 @@ export default {
     VueRecaptcha,
     RegisterCodeConfirm, 
     Modal
+  },
+  filters: {
+    amount(value) {
+      if (value) {
+        const req = /(\d)(?=(\d{3})+(?!\d))/g;
+        const formattedValue = value.toString();
+        let endValue = formattedValue.replace(req, "$1.");
+        return endValue;
+      }
+      return "0.00";
+    },
   },
   computed: {
     mobile() {
@@ -386,6 +397,7 @@ export default {
   }
   &__counter-content {
     position: relative;
+    margin-top: 30px;
   }
   &__counter-text {
     position: absolute;

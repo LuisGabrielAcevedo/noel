@@ -142,27 +142,27 @@ export default {
       error: "",
       topics: [
         {
-          text: "Problema con mi recarga",
+          text: "Consulta general",
           value: 1,
         },
         {
-          text: 'PROBLEMA CON MI STICKER',
+          text: 'Problema con mi sticker',
           value: 2
         },
         {
-          text: "Consulta general",
+          text: "Cambio de operador",
           value: 3,
         },
         {
-          text: "Cambio de operador",
+          text: "Corrección de número o correo",
           value: 4,
         },
         {
-          text: "Corrección de número",
+          text: "Problema con mi recarga",
           value: 5,
         },
         {
-          text: "Premio Netflix",
+          text: "Ganador de premio",
           value: 6,
         },
         {
