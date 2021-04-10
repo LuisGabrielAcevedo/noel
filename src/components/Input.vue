@@ -173,7 +173,7 @@ export default {
       font-size: 14px;
     }
     @include mobile() {
-      width: 100% !important;
+      width: 270px !important;
     }
     &__main-box {
         display: flex;

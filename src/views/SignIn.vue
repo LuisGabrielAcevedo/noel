@@ -132,6 +132,9 @@ export default {
     @include mobile() {
       height: 230px;
     }
+    @include xs() {
+      height: 180px;
+    }
   }
   &__content {
     display: flex;

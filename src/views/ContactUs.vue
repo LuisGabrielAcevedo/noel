@@ -89,8 +89,8 @@ export default {
               this.$store.dispatch("setAlert", {
                 buttonLabel: "Aceptar",
                 showClose: true,
-                message:
-                  "¡EL MENSAJE FUE ENVIADO EXITOSAMENTE!",
+                messages:
+                  ["¡EL MENSAJE FUE ENVIADO EXITOSAMENTE!", "Te responderemos al correo electrónico registrado.", "No olvides consultar el spam."]
               });
               this.message = {
                 title: "",

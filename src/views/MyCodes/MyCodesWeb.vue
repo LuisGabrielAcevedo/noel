@@ -250,7 +250,7 @@ export default {
       &-award {
         text-align: start;
         color: #131f45;
-        font-size: 12px;
+        font-size: 11px;
         margin: 0px !important;
       }
     }

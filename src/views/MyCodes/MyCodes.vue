@@ -73,10 +73,10 @@ export default {
 
         const strings = {
           bonus: "¡T. REGALO!",
-          computer: "¡COMPUTADORA!",
+          computer: "¡COMPUTADOR!",
           charge: "¡RECARGA!",
           phone: "¡CELULAR!",
-          none: "-",
+          none: "SIGUE INTENTANDO",
         };
 
         const texts = {
@@ -94,12 +94,7 @@ export default {
           charge: `¡Ganaste recarga!`,
           none: `¡SIGUE INTENTANDO!`,
         };
-        index === 1 && console.log("este", item);
-        index === 1 &&
-          console.log(
-            "aqui",
-            item.code && item.code_2 ? strings[item.result] : "-"
-          );
+       
         return {
           cant: index + 1,
           saltinNoel: item.code && {
@@ -110,7 +105,7 @@ export default {
             titleOne: item.code_2,
             titleTwo: item.ducales_at ? this.formatDate(item.ducales_at) : "",
           },
-          award: item.code && item.code_2 ? strings[item.result] : "-",
+          award: item.code && item.code_2 ? strings[item.result] : "SIGUE INTENTANDO",
           titleMobile:
             item.code && item.code_2 ? "Pareja Completa" : "Pareja Incompleta",
           resultCouple:
