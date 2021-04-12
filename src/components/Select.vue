@@ -194,7 +194,7 @@ export default {
     flex-direction: column;
   }
   &__scroll {
-    max-height: 140px;
+    max-height: 115px;
     overflow-y: scroll;
   }
   &__option {

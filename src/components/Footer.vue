@@ -13,7 +13,7 @@
         class="footer__facebook"
         src="@/assets/web/ico_facebook.png"
       />
-      <span class="footer__facebook-text" @click="gotoDucales()">ToquesMagicosDucales</span>
+      <span class="footer__facebook-text" @click="gotoDucales()">ducalesgruponutresa</span>
     </div>
     <div class="footer__routes">
       <span v-if="token" style="margin: 20px" class="footer__text cp" @click="gotoContacts()">Contáctanos</span>
