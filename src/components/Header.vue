@@ -140,7 +140,10 @@ export default {
         name: "Términos y Condiciones",
         path: "/terminos-y-condiciones",
         isVisible: () => !this.token || this.mobile,
-        clickAction: () => this.$store.dispatch("setTermsAndConditions", true),
+        clickAction: () => {
+          this.dialog = false
+          this.$store.dispatch("setTermsAndConditions", true)
+        },
       },
       {
         name: "Contáctanos",
@@ -150,6 +153,7 @@ export default {
       {
         name: "Cerrar Sesión",
         clickAction: () => {
+          this.dialog = false
           this.logout();
         },
         isVisible: () => this.token,

@@ -88,3 +88,11 @@ export const GetLatestWinners = async () => {
 
   return resp.data;
 };
+
+export const GetStatus = async () => {
+  const resp = await Vue.axios({
+    method: "Get",
+    url: "v1/get-status-user",
+  });
+  return resp.data;
+};

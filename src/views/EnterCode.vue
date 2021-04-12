@@ -133,6 +133,7 @@
         :ducales="respStatus.ducales"
         :saltinMsg="respStatus.saltinMsg"
         :ducalesMsg="respStatus.ducalesMsg"
+        :status="respStatus.status"
         slot="component"
         @close="dialog = false"
       ></register-code-confirm>
@@ -144,7 +145,7 @@
 import Input from '../components/Input'
 import Button from '../components/Button'
 import VueRecaptcha from "vue-recaptcha";
-import {SaveCodes} from '../api'
+import {SaveCodes, GetStatus} from '../api'
 import RegisterCodeConfirm from "../components/RegisterCodeConfirm";
 import Modal from "../components/Modal";
 
@@ -233,20 +234,24 @@ export default {
         code_ducales: ducales
       })
         .then((resp) => {
-          this.loading = false;
-          this.respStatus = {
-            ducales: resp.data.ducales.res,
-            saltin: resp.data.saltin.res,
-            saltinMsg: resp.data.saltin.message,
-            ducalesMsg: resp.data.ducales.message
-          };
-          this.dialog = true;
-          this.$refs.recaptcha.reset()
-          this.recaptchaCode = null;
-          this.$store.dispatch("loadBalance");
-          this.ducales = "";
-          this.saltin = "";
-          this.code = ""
+          GetStatus().then(resp2 => {
+              this.loading = false;
+              this.respStatus = {
+                ducales: resp.data.ducales.res,
+                saltin: resp.data.saltin.res,
+                saltinMsg: resp.data.saltin.message,
+                ducalesMsg: resp.data.ducales.message,
+                status: resp2.data || ''
+              };
+              console.log(this.respStatus)
+              this.dialog = true;
+              this.$refs.recaptcha.reset()
+              this.recaptchaCode = null;
+              this.$store.dispatch("loadBalance");
+              this.ducales = "";
+              this.saltin = "";
+              this.code = ""
+          });
         })
         .catch((err) => {
           if (err.response.status !== 401) {

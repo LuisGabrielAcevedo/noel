@@ -66,7 +66,7 @@ export default {
     },
     gotoDucales() {
       window.open(
-        `https://www.facebook.com/ToquesMagicosDucales/`,
+        `https://www.facebook.com/ducalesgruponutresa/`,
         "_blank"
       );
     },

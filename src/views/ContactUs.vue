@@ -90,7 +90,7 @@ export default {
                 buttonLabel: "Aceptar",
                 showClose: true,
                 messages:
-                  ["¡EL MENSAJE FUE ENVIADO EXITOSAMENTE!", "Te responderemos al correo electrónico registrado.", "No olvides consultar el spam."]
+                  ["¡El mensaje fue enviado exitosamente!.", "Te responderemos al correo electrónico registrado.", "No olvides consultar el spam."]
               });
               this.message = {
                 title: "",

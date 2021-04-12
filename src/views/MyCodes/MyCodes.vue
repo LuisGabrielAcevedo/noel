@@ -48,7 +48,6 @@ export default {
       }
     },
     formatData(data) {
-      console.log(data);
       const newData = data.map((item, index) => {
         const saltinCodeEmpty = !item.code && "Saltín";
         const ducalesCodeEmpty = !item.code_2 && "Ducales";
@@ -77,22 +76,25 @@ export default {
           charge: "¡RECARGA!",
           phone: "¡CELULAR!",
           none: "SIGUE INTENTANDO",
+          reversed: '¡Cancelado!'
         };
 
         const texts = {
           bonus: `¡Ganaste tarjeta débito!`,
           phone: `¡Ganaste celular!`,
-          computer: `¡Ganaste portátil!`,
+          computer: `¡Ganaste computador!`,
           charge: `¡Ganaste recarga!`,
-          none: `¡Esta vez no pudiste ganar!`,
+          none: `!Esta vez no ganaste premio!`,
+          reversed: '¡Cancelado!'
         };
 
         const results = {
           bonus: `¡Ganaste tarjeta débito!`,
           phone: `¡Ganaste celular!`,
-          computer: `¡Ganaste portátil!`,
+          computer: `¡Ganaste computador!`,
           charge: `¡Ganaste recarga!`,
           none: `¡SIGUE INTENTANDO!`,
+          reversed: '¡Cancelado!'
         };
        
         return {

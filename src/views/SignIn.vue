@@ -128,7 +128,7 @@ export default {
     justify-content: center;
   }
   &__image {
-    height: 280px;
+    height: 306px;
     @include mobile() {
       height: 230px;
     }

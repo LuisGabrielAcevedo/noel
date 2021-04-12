@@ -1,6 +1,6 @@
 <template>
   <div class="signUp">
-      <div class="back-content" @click="goTo('/ingresar')">
+      <div class="back-content" @click="goTo('/ingresar')" v-if="mobile">
         <div class="back">
           <span class="back-text">Volver</span>
         </div>
@@ -29,7 +29,7 @@
               $refs.department_state.open = false;
             "
             field="name"
-            label="Nombre Completo*"
+            label="Nombre Completo"
             @handle-input="setValue($event)"
             placeholder="Ingresar nombre completo"
             :required="true"
@@ -42,7 +42,7 @@
               $refs.operator.open = false;
               $refs.department_state.open = false;
             "
-            label="Correo Electrónico*"
+            label="Correo Electrónico"
             @handle-input="setValue($event)"
             placeholder="Ingresar correo electrónico"
             :required="true"

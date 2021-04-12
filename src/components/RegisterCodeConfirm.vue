@@ -56,6 +56,7 @@
       <div v-if="!mobile" class="register-code-confirm__errors">
         <span class="register-code-confirm__text" v-if="!validSaltin && !savedDucales">{{saltinMsg}}</span>
         <span class="register-code-confirm__text" v-if="!validDucales && !savedSaltin">{{ducalesMsg}}</span>
+        <span class="register-code-confirm__text">{{status}}</span>
       </div>
       <div v-else>
         <span
@@ -64,6 +65,7 @@
         <div v-else class="register-code-confirm__errors">
           <span class="register-code-confirm__text" v-if="!validSaltin && !savedDucales">{{saltinMsg}}</span>
           <span class="register-code-confirm__text" v-if="!validDucales && !savedSaltin">{{ducalesMsg}}</span>
+          <span class="register-code-confirm__text">{{status}}</span>
         </div>
       </div>
     </div>
@@ -109,6 +111,10 @@ export default {
     ducalesMsg: {
       type: String,
       required: ""
+    },
+    status: {
+      type: String,
+      required: ""
     }
   },
   computed: {
@@ -146,7 +152,7 @@ export default {
         if (this.awardSaltin) return this.saltinMsg;
         if (this.awardDucales) return this.ducalesMsg;
       } else {
-        return "";
+        return '';
       }
     },
     mobileErrorMessage() {
