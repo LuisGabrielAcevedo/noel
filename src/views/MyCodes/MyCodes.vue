@@ -68,6 +68,7 @@ export default {
           none: require("@/assets/mobile/Pareja_incompleta_mis_codigos_respons.png"),
           pending_saltin: require("@/assets/mobile/Pareja_incompleta_mis_codigos_respons.png"),
           pending_ducales: require("@/assets/mobile/Pareja_incompleta_mis_codigos_respons.png"),
+          reversed: require("@/assets/mobile/Quitar_premio_mis_codigos_respons.png"),
         };
 
         const strings = {
@@ -76,7 +77,7 @@ export default {
           charge: "¡RECARGA!",
           phone: "¡CELULAR!",
           none: "SIGUE INTENTANDO",
-          reversed: '¡Cancelado!'
+          reversed: '¡CANCELADO!'
         };
 
         const texts = {
@@ -85,7 +86,7 @@ export default {
           computer: `¡Ganaste computador!`,
           charge: `¡Ganaste recarga!`,
           none: `!Esta vez no ganaste premio!`,
-          reversed: '¡Cancelado!'
+          reversed: '¡CANCELADO!'
         };
 
         const results = {
@@ -94,7 +95,7 @@ export default {
           computer: `¡Ganaste computador!`,
           charge: `¡Ganaste recarga!`,
           none: `¡SIGUE INTENTANDO!`,
-          reversed: '¡Cancelado!'
+          reversed: '¡CANCELADO!'
         };
        
         return {
