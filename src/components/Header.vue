@@ -46,12 +46,11 @@
             />
           </div>
           <div class="container-routes-mobile">
-            <div v-for="(route, k) in webRoutes" :key="k">
+            <div v-for="(route, k) in webRoutes" :key="k" class="header__web-route header__web-route-mobile">
               <div
                 v-if="route.isVisible()"
                 @click="click(route)"
-                class="header__web-route header__web-route-mobile"
-                :class="{
+                                :class="{
                   'header--web-route-selected': route.path === selectedRoute,
                 }"
               >
@@ -221,6 +220,7 @@ export default {
 
 <style lang="scss">
 @import "@/assets/scss/mixins.scss";
+
 .header {
   display: flex;
   align-items: center;
@@ -260,7 +260,7 @@ export default {
   &__web-route {
     cursor: pointer;
     border-radius: 25px;
-    padding: 4px 10px 2px 10px;
+    padding: 0px 10px 0px 10px;
     text-align: center;
     line-height: 14px;
   }
@@ -295,8 +295,7 @@ export default {
   z-index: 10 !important;
   background-color: rgba(0, 0, 0, 0.7);
   &__content {
-    flex-grow: 1;
-    max-height: 70%;
+    max-height: 70% !important;
     width: 600px;
     background: transparent
       radial-gradient(closest-side at 50% 50%, #253e87 0%, #131f44 100%) 0% 0%
@@ -305,6 +304,10 @@ export default {
     border-radius: 15px;
     @include mobile() {
       width: 90% !important;
+    }
+
+    @include xs() {
+      max-height: 100% !important;
     }
   }
 
@@ -353,7 +356,7 @@ export default {
 
 .container-routes-mobile {
   margin-top: 20px;
-  height: 100%;
+  max-height: 70% !important;
   display: flex;
   flex-direction: column;
   justify-content: space-around;

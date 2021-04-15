@@ -17,7 +17,7 @@
           :maxlength="maxlength"
           :disabled="disabled"
           autocomplete="off"
-        /> 
+        />
         <input
           v-if="onlyNumbers && mask"
           v-mask="mask"
@@ -170,10 +170,14 @@ export default {
     input::placeholder {
       color: #BCBCBC;
       font-family: MontserratItalic;
-      font-size: 14px;
+      font-size: 12px;
     }
     @include mobile() {
       width: 270px !important;
+    }
+
+    @include xs() {
+      margin-bottom: 5px;
     }
     &__main-box {
         display: flex;
@@ -193,6 +197,10 @@ export default {
       @include mobile() {
         font-size: 14px;
         height: 38px;
+      }
+
+      @include xs() {
+	height: 30px;
       }
     }
     input:focus {

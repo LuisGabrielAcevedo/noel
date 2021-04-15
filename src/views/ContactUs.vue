@@ -42,7 +42,7 @@
       </div>
     </div>
   </div>
-</template> 
+</template>
 
 <script>
 import Select from "../components/Select";
@@ -189,9 +189,13 @@ export default {
     flex-direction: column;
     align-items: center;
     border-radius: 20px;
-    padding: 20px 20px 14px 20px;
+    padding: 10px 20px 10px 20px;
     @include mobile() {
       width: 92%;
+    }
+
+    @include xs() {
+      padding: 5px 20px;
     }
   }
   &__text {
@@ -201,6 +205,11 @@ export default {
     line-height: 18px;
     margin-bottom: 20px;
     text-align: center;
+
+    @include xs() {
+      font-size: 12px;
+      line-height: 12px;
+    }
   }
 }
 </style>

@@ -2,7 +2,7 @@
   <div class="signIn">
     <div class="signIn__image-content">
       <span class="signIn__title" v-if="!mobile">Bienvenido a</span>
-      <img class="signIn__image" src="@/assets/web/Logo_inicio_txt.png">
+      <img class="signIn__image" src="@/assets/web/Logo_promo_que_nos_une_modales.png">
     </div>
     <div class="signIn__content">
       <div class="signIn__section1">
@@ -28,13 +28,13 @@
         <span class="signIn__section2-text">
           Para participar, completa tu registro.
         </span>
-        <div class="signIn__section2-button"> 
+        <div class="signIn__section2-button">
           <Button text="Registrarme" type="primary" @handle-click="register()"/>
         </div>
       </div>
     </div>
   </div>
-</template> 
+</template>
 
 <script>
 import Button from '../components/Button'
@@ -134,6 +134,7 @@ export default {
     }
     @include xs() {
       height: 180px;
+      margin-top: -20px;
     }
   }
   &__content {
@@ -149,6 +150,10 @@ export default {
       flex-direction: column;
       margin: 10px;
     }
+
+    @include xs() {
+      margin-top: -15px;
+    }
   }
   &__section1 {
     display: flex;
@@ -158,13 +163,13 @@ export default {
   &__section1-text {
     font-family: NexaBold;
     color: #253E87;
-    line-height: 16px;
-    font-size: 16px;
+    line-height: 12px;
+    font-size: 12px;
     margin-bottom: 10px;
     text-align: center;
   }
   &__section1-button {
-    margin-top: -20px;
+    margin-top: -25px;
   }
   &__section2 {
     display: flex;
@@ -174,9 +179,9 @@ export default {
   &__section2-text {
     font-family: NexaBold;
     color: #253E87;
-    line-height: 16px;
-    font-size: 16px;
-    margin-bottom: 20px;
+    line-height: 12px;
+    font-size: 12px;
+    margin-bottom: 15px;
     text-align: center;
   }
   &__title {
@@ -195,6 +200,10 @@ export default {
       width: 140px;
       border-right: none;
       border-top: 3px solid #131F45;
+    }
+
+    @include xs() {
+      margin: 10px 0;
     }
   }
 }

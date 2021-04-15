@@ -239,6 +239,12 @@ export default {
     color: white;
     padding: 10px 61px;
     margin: 20px;
+
+    @include xs() {
+      margin: 10px;
+      padding: 10px;
+      font-size: 14px;
+    }
   }
 
   &__modal-content {
@@ -287,7 +293,7 @@ export default {
     background-color: #FFFFFF !important;
     border-radius: 10px !important;
   }
-  
+
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: white !important;

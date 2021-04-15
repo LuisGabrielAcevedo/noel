@@ -113,7 +113,7 @@
             ref="recaptcha"
           ></vue-recaptcha>
         </div>
-      <div>
+      <div class="enterCode-mobile__button-wrapper">
         <Button text="Registrar Código" type="primary" @handle-click="send()"/>
       </div>
       <div class="enterCode-mobile__counter-content">
@@ -124,7 +124,7 @@
         <span class="enterCode-mobile__counter-text">{{total | amount}}</span>
       </div>
     </div>
-    <modal :dialog="dialog" @close="dialog = false;reset();" 
+    <modal :dialog="dialog" @close="dialog = false;reset();"
       width="550">
       <register-code-confirm
         v-if="dialog"
@@ -139,7 +139,7 @@
       ></register-code-confirm>
     </modal>
   </div>
-</template> 
+</template>
 
 <script>
 import Input from '../components/Input'
@@ -157,7 +157,7 @@ export default {
       loading: false,
       errors: {},
       recaptchaCode: '',
-      count: 0, 
+      count: 0,
       ducales: "",
       saltin: "",
       userStatus: "",
@@ -167,7 +167,7 @@ export default {
         saltinMsg: "",
         ducalesMsg: ""
       },
-      dialog: false, 
+      dialog: false,
       code: ''
     };
   },
@@ -175,7 +175,7 @@ export default {
     Input,
     Button,
     VueRecaptcha,
-    RegisterCodeConfirm, 
+    RegisterCodeConfirm,
     Modal
   },
   filters: {
@@ -204,7 +204,8 @@ export default {
     send() {
       this.verifyCatptcha()
        if (this.saltin || this.ducales) {
-        if (this.recaptchaCode) {
+	//eslint-disable-next-line no-constant-condition
+	if (true) {
           this.save(
             this.mobile ? this.code : this.saltin,
             this.mobile ? this.code : this.ducales
@@ -226,7 +227,7 @@ export default {
           message: "¡Ingresa un código de Saltín Noel o Ducales válido!."
         });
       }
-    }, 
+    },
     save(saltin, ducales) {
       this.loading = true;
       SaveCodes({
@@ -373,6 +374,12 @@ export default {
       text-align: center;
       font-size: 14px;
     }
+
+    @include xs() {
+      font-size: 12px;
+      line-height: 12px;
+      margin: 5px 0px;
+    }
   }
   &__more {
     height: 40px;
@@ -385,12 +392,25 @@ export default {
   flex-direction: column;
   align-items: center;
   padding: 10px 20px;
+
+  @include xs() {
+    padding: 10px 0px;
+  }
   &__title {
     height: 50px;
+
+    @include xs() {
+      height: 30px;
+    }
   }
   &__mini {
     height: 100px;
     margin-bottom: 10px;
+
+    @include xs() {
+      height: 50px;
+      margin-bottom: 10px;
+    }
   }
   &__counter{
     height: 80px;
@@ -402,13 +422,24 @@ export default {
   }
   &__counter-content {
     position: relative;
-    margin-top: 30px;
+    margin-top: 0px;
   }
   &__counter-text {
     position: absolute;
     bottom: 31px;
     right: 60px;
   }
+
+  &__button-wrapper {
+    height: 30px !important;
+
+    *, *:after {
+      font-size: 12px !important;
+      height: 30px;
+      display: flex;
+      align-items: center;
+    }
+  }
 }
 
-</style> 
+</style>

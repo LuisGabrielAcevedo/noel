@@ -74,11 +74,11 @@
       <div style="margin-bottom: 10px">
         <Button text="Aceptar" type="primary" @handle-click="close()"/>
       </div>
-      
-      <Button 
+
+      <Button
         v-if="(savedSaltin && !awardDucales) || (savedDucales && !awardSaltin)"
-        text="Ver mis códigos" 
-        type="secondary" 
+        text="Ver mis códigos"
+        type="secondary"
         @handle-click="goToMyCodes()"/>
     </div>
   </div>
@@ -185,6 +185,12 @@ export default {
       height: 160px;
       margin-top: -80px;
     }
+
+    @include xs() {
+      height: 140px;
+      margin-top: -50px;
+      margin-bottom: -10px;
+    }
   }
   &__close-container {
     display: flex;
@@ -192,6 +198,11 @@ export default {
     width: 100%;
     padding: 10px;
     margin-top: -56px;
+
+    @include xs() {
+      margin-bottom: -40px;
+      margin-top: -10px;
+    }
   }
   &__close-image {
     height: 30px;
@@ -202,9 +213,17 @@ export default {
   }
   &__ducales-image {
       height: 100px;
+
+      @include xs() {
+	height: 80px;
+      }
   }
   &__saltin-image {
       height: 100px;
+
+      @include xs() {
+	height: 80px;
+      }
   }
   &__text {
     font-family: NexaBold;

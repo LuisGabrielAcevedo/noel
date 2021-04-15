@@ -322,14 +322,14 @@ con los contenidos de éste</p></li>
       </div>
     </div>
   </div>
-</template> 
+</template>
 
 <script>
 export default {
   name: 'TermsAndConditions',
   data() {
     return {
-      
+
     };
   },
   mounted() {},
@@ -380,6 +380,10 @@ export default {
     @include mobile () {
       padding-right: 15px;
     }
+    @include xs() {
+      width: 100%;
+      overflow-x: hidden;
+    }
   }
   &__text {
     font-family: BebasNeue;
@@ -398,6 +402,11 @@ export default {
       height: 160px;
       margin-top: -80px;
     }
+
+    @include xs() {
+      margin-top: -50px;
+      margin-bottom: -20px;
+    }
   }
   &__close-container {
     display: flex;
@@ -405,6 +414,11 @@ export default {
     width: 100%;
     padding: 10px;
     margin-top: -56px;
+
+    @include xs() {
+      margin-top: 0px;
+      margin-bottom: -40px;
+    }
   }
   &__close-image {
     height: 30px;
@@ -423,7 +437,7 @@ export default {
     background-color: #FFFFFF !important;
     border-radius: 10px !important;
   }
-  
+
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: white !important;

@@ -74,8 +74,8 @@ export default {
     Footer,
     Alert,
     TermsAndConditions,
-    Modal, 
-    PrivacyPolicy, 
+    Modal,
+    PrivacyPolicy,
   },
   props: {},
   computed: {
@@ -128,6 +128,9 @@ export default {
 </script>
 
 <style lang="scss">
+
+@import "@/assets/scss/mixins";
+
 .app {
   position: fixed;
   top: 0;
