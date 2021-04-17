@@ -66,7 +66,7 @@
         <div class="awards__helperImage">
           <img
             class="awards__helperImage-image"
-            src="@/assets/web/Texto_apoyo_premios.png"
+            src="@/assets/web/Caja_texto_login.png"
             alt="Apoyo premio"
           />
         </div>
@@ -213,7 +213,7 @@ export default {
     &-image {
       height: 80px;
       @include xs() {
-        height: 60px;
+        height: 80px;
       }
     }
   }

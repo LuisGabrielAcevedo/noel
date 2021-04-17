@@ -122,6 +122,10 @@ export default {
 
     &-mobile {
       height: 640px;
+
+      @include xs() {
+	height: 650px;
+      }
     }
   }
 }

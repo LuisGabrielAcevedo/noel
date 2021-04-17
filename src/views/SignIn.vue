@@ -1,4 +1,5 @@
 <template>
+  <div class="signIn__wrapper">
   <div class="signIn">
     <div class="signIn__image-content">
       <span class="signIn__title" v-if="!mobile">Bienvenido a</span>
@@ -12,7 +13,7 @@
           <Input
             field="idn"
             @handle-input="setValue($event)"
-            placeholder="Número de cédula"
+             placeholder="Número de cédula"
             :onlyNumbers="true"
             :error="error"
             maxlength="10"
@@ -33,6 +34,8 @@
         </div>
       </div>
     </div>
+  </div>
+  <img class="signIn__image-login-bottom" src="@/assets/web/Caja_texto_login.png" alt="texto_login"/>
   </div>
 </template>
 
@@ -122,6 +125,23 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: center;
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__image-login-bottom {
+      display: none;
+
+      @include xs() {
+	display: initial;
+	height: 80px;
+	margin-bottom: 10px;
+      }
+
+  }
   &__image-content {
     display: flex;
     align-items: center;
