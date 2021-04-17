@@ -255,18 +255,24 @@ export default {
     position: relative;
     min-height: 300px;
     padding: 10px 20px;
-    height: 400px;
+    height: 340px;
     margin-bottom: 20px;
     @include mobile() {
       padding: 10px;
     }
+
   }
   &__image {
     height: 220px;
     margin-top: -100px;
     @include mobile() {
       height: 160px;
-      margin-top: -85px;
+      margin-top: -80px;
+    }
+
+    @include xs() {
+      margin-bottom: -25px;
+      margin-top: -80px;
     }
   }
   &__close-container {
@@ -274,7 +280,7 @@ export default {
     justify-content: flex-end;
     width: 100%;
     padding: 10px;
-    margin-top: -10px;
+    margin-top: -60px;
   }
   &__close-image {
     height: 30px;

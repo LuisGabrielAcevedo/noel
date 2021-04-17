@@ -416,7 +416,7 @@ export default {
     margin-top: -56px;
 
     @include xs() {
-      margin-top: 0px;
+      margin-top: -50px;
       margin-bottom: -40px;
     }
   }

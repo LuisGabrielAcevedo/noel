@@ -54,6 +54,14 @@ export default {
   left: 0;
   z-index: 10 !important;
   background-color: rgba(0, 0, 0, 0.7);
+
+
+  @include xs() {
+
+    bottom: -30px;
+
+  }
+
   &__content {
     background: transparent linear-gradient(180deg, #ffdd5d 0%, #ffb000 100%) 0%
       0% no-repeat padding-box;
@@ -63,6 +71,7 @@ export default {
     @include mobile() {
       width: 90% !important;
     }
+
   }
 }
 </style>

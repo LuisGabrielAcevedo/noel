@@ -130,6 +130,7 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 100%;
   }
 
   &__image-login-bottom {
@@ -168,7 +169,7 @@ export default {
     border-radius: 20px;
     @include mobile() {
       flex-direction: column;
-      margin: 10px;
+      margin: 10px 0px;
     }
 
     @include xs() {
