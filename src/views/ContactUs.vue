@@ -35,7 +35,7 @@
         placeholder="Ingresar mensaje"
         :required="true"
         :error="error"
-        class="mt-3"
+        class="mt-0"
       />
       <div style="margin-top: 70px">
         <Button text="Enviar" type="primary" @handle-click="send()"/>

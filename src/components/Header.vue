@@ -329,7 +329,7 @@ export default {
     margin-bottom: 10px;
     @include mobile() {
       height: 160px;
-      margin-top: -80px;
+      margin-top: -60px;
     }
   }
   &__close-container {
@@ -337,7 +337,7 @@ export default {
     justify-content: flex-end;
     width: 100%;
     padding: 10px 0px;
-    margin-top: -100px;
+    margin-top: -120px;
     margin-bottom: 20px;
   }
   &__close-image {

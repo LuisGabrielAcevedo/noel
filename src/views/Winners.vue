@@ -266,7 +266,7 @@ export default {
     margin-top: -100px;
     @include mobile() {
       height: 160px;
-      margin-top: -80px;
+      margin-top: -85px;
     }
   }
   &__close-container {
@@ -274,7 +274,7 @@ export default {
     justify-content: flex-end;
     width: 100%;
     padding: 10px;
-    margin-top: -56px;
+    margin-top: -10px;
   }
   &__close-image {
     height: 30px;
