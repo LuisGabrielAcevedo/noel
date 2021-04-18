@@ -4,6 +4,7 @@
     <div class="signIn__image-content">
       <span class="signIn__title" v-if="!mobile">Bienvenido a</span>
       <img class="signIn__image" src="@/assets/web/Logo_promo_que_nos_une_modales.png">
+      <img class="signIn__image-mobile" src="@/assets/web/Logo_login_respons.png" alt="logo_mobile">
     </div>
     <div class="signIn__content">
       <div class="signIn__section1">
@@ -150,12 +151,29 @@ export default {
   }
   &__image {
     height: 306px;
-    @include mobile() {
-      height: 230px;
-    }
+    display:none;
+
     @include xs() {
       height: 180px;
       margin-top: -20px;
+      display: initial !important;
+    }
+
+    @include mobile() {
+      height: 230px;
+      display: none;
+    }
+
+    &-mobile {
+      height: 306px;
+      margin-bottom: 10px;
+      @include mobile() {
+        display: initial;
+        height: 230px;
+      }
+      @include xs() {
+        display: none;
+      }
     }
   }
   &__content {
