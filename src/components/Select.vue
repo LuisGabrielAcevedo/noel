@@ -120,6 +120,9 @@ export default {
   margin: 0 10px;
   margin-bottom: 10px;
   @include mobile() {
+    width: 270px !important;
+  }
+  @include xs() {
     width: 100% !important;
   }
   &__main-box {
@@ -148,7 +151,7 @@ export default {
     position: relative;
     @include mobile() {
       height: 38px;
-      padding-top: 8px;
+      padding-top: 3px;
     }
   }
   &__label {
@@ -165,10 +168,7 @@ export default {
   &__placeholder{
     color: #BCBCBC;
     font-family: MontserratItalic;
-    font-size: 15px;
-    @include mobile() {
-      font-size: 14px;
-    }
+    font-size: 12px;
   }
   &__icon-content {
     position: absolute;

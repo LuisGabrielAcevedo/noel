@@ -93,7 +93,8 @@
         class="enterCode-mobile__mini"
         src="@/assets/mobile/img_ejemplo_ingresar_cod_respons.png"
       />
-      <Input
+      <div style="width: 270px;margin-right: 20px;">
+        <Input
         :field="'code'"
         :model="code"
         maxlength="9"
@@ -101,6 +102,7 @@
         @handle-input="setValue($event)"
         placeholder="Ingresar tu código aquí"
       />
+      </div>
       <span class="enterCode-web__mini-text other">Recuerda guardar los stickers que registraste.</span>
       <div  class="enterCode-web__rec">
           <vue-recaptcha
