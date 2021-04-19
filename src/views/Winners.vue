@@ -255,10 +255,14 @@ export default {
     position: relative;
     min-height: 300px;
     padding: 10px 20px;
-    height: 340px;
+    height: 370px;
     margin-bottom: 20px;
     @include mobile() {
       padding: 10px;
+    }
+
+    @include xs() {
+      height: 340px;
     }
 
   }
@@ -271,8 +275,9 @@ export default {
     }
 
     @include xs() {
+      height: 140px;
       margin-bottom: -25px;
-      margin-top: -80px;
+      margin-top: -65px;
     }
   }
   &__close-container {

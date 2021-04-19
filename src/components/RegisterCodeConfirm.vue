@@ -201,12 +201,13 @@ export default {
 
     @include xs() {
       margin-bottom: -40px;
-      margin-top: -10px;
+      margin-top: -40px;
     }
   }
   &__close-image {
     height: 30px;
     cursor: pointer;
+    margin-top: -20px;
     @include mobile() {
       height: 28px;
     }
@@ -215,20 +216,24 @@ export default {
       height: 100px;
 
       @include xs() {
-	height: 80px;
+	height: 60px;
       }
   }
   &__saltin-image {
       height: 100px;
 
       @include xs() {
-	height: 80px;
+	height: 60px;
       }
   }
   &__text {
     font-family: NexaBold;
     color: #253E87;
     font-size: 16px;
+
+    @include xs() {
+      font-size: 13px;
+    }
   }
   &__buttons {
     display: flex;

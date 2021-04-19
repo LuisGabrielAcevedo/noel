@@ -157,6 +157,10 @@ export default {
       overflow-y: auto;
       max-height: 300px;
     }
+
+    @include xs() {
+      margin-bottom: -20px;
+    }
   }
   &__text1 {
     color: #253E87;
@@ -184,6 +188,11 @@ export default {
       height: 160px;
       margin-top: -80px;
     }
+    @include xs() {
+      height: 140px;
+      margin-top: -70px;
+      margin-bottom: -1px;
+    }
   }
   &__close-container {
     display: flex;
@@ -208,6 +217,10 @@ export default {
     padding: 0px 40px;
     @include mobile() {
       padding: 0px 10px;
+    }
+
+    @include xs() {
+      margin-top: 10px;
     }
   }
 }

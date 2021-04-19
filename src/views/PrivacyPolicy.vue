@@ -98,8 +98,9 @@ export default {
     margin-top: -100px;
     margin-bottom: 10px;
     @include mobile() {
-      height: 160px;
+      height: 140px;
       margin-top: -80px;
+      margin-bottom: -25px;
     }
   }
   &__close-container {

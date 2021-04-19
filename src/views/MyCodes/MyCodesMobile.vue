@@ -21,10 +21,7 @@
 
       <div class="myCodesMobile__content">
         <div
-          v-for="(item, index) in tableData"
-          :key="index"
-          class="myCodesMobile__content-items myCodesMobile__boxItem"
-        >
+          v-for="(item, index) in tableData" :key="index" class="myCodesMobile__content-items myCodesMobile__boxItem" @click="onClickElement">
           <div class="myCodesMobile__content-items-header">
             <span class="myCodesMobile__content-items-header-index">{{
               index + 1
@@ -44,7 +41,6 @@
                 {{ item.resultCouple }}
               </p>
               <img
-                @click="onClickElement(item)"
                 class="myCodesMobile__content-items-content-action-arrow"
                 src="@/assets/mobile/Flecha_ir_detalle_codigo.png"
                 alt="flecha"

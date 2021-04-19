@@ -399,12 +399,12 @@ export default {
     margin-top: -100px;
 
     @include mobile() {
-      height: 160px;
+      height: 140px;
       margin-top: -80px;
     }
 
     @include xs() {
-      margin-top: -50px;
+      margin-top: -40px;
       margin-bottom: -20px;
     }
   }

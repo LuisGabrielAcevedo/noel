@@ -204,8 +204,7 @@ export default {
     send() {
       this.verifyCatptcha()
        if (this.saltin || this.ducales) {
-	//eslint-disable-next-line no-constant-condition
-	if (true) {
+	if (this.recaptchaCode) {
           this.save(
             this.mobile ? this.code : this.saltin,
             this.mobile ? this.code : this.ducales

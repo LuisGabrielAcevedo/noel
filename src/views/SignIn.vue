@@ -160,7 +160,7 @@ export default {
     }
 
     @include mobile() {
-      height: 230px;
+      height: 170px;
       display: none;
     }
 
