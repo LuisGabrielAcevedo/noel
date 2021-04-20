@@ -124,7 +124,7 @@ export default {
           result:
             item.code && item.code_2
               ? results[item.result]
-              : "¡ingresa el código faltante y gana!",
+              : "¡ingresa el código faltante y participa!",
           saltinTacoImage: item.code
             ? image["tacoSaltin"]
             : image["tacoSaltinDisabled"],
