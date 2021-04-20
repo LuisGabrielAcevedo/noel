@@ -172,7 +172,6 @@ export default {
   flex-direction: column;
   align-items: center;
   position: relative;
-  min-height: 300px;
   padding: 10px 20px;
   @include mobile() {
     padding: 10px;

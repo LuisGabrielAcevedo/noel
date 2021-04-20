@@ -159,7 +159,7 @@ export default {
     }
 
     @include xs() {
-      margin-bottom: -20px;
+      margin-bottom: -6px;
     }
   }
   &__text1 {
@@ -170,6 +170,9 @@ export default {
     @include mobile() {
       font-size: 14px;
     }
+    @include mobile() {
+      font-size: 12px;
+    }
   }
   &__text {
     color: #253E87;
@@ -178,6 +181,9 @@ export default {
     text-transform: capitalize;
     @include mobile() {
       font-size: 14px;
+    }
+    @include mobile() {
+      font-size: 12px;
     }
   }
   &__image {
