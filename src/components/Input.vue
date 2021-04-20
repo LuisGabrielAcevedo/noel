@@ -175,6 +175,9 @@ export default {
     @include mobile() {
       width: 270px !important;
     }
+    @include xs() {
+      width: 100% !important;
+    }
 
     @include xs() {
       margin-bottom: 5px;

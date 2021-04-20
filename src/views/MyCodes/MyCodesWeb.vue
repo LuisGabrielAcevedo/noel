@@ -85,6 +85,7 @@
           </div>
           <div class="myCodesWeb__table-content-element">
             <p
+              style="text-align: center;"
               class="myCodesWeb__table-text-content-award myCodesWeb__alignmentText"
             >
               {{ item.award }}

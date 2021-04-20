@@ -111,7 +111,7 @@ export default {
             titleOne: item.code_2,
             titleTwo: item.ducales_at ? this.formatDate(item.ducales_at) : "",
           },
-          award: item.code && item.code_2 ? strings[item.result] : "SIGUE INTENTANDO",
+          award: item.code && item.code_2 ? strings[item.result] : "PAREJA INCOMPLETA",
           titleMobile:
             item.code && item.code_2 ? "Pareja Completa" : "Pareja Incompleta",
           resultCouple:

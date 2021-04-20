@@ -130,6 +130,9 @@ export default {
       font-size: 14px;
     }
     @include mobile() {
+      width: 270px !important;
+    }
+    @include xs() {
       width: 100% !important;
     }
     &__main-box {
