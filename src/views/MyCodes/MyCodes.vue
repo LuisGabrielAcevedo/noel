@@ -55,10 +55,10 @@ export default {
         const emptyCode = saltinCodeEmpty ? saltinCodeEmpty : ducalesCodeEmpty;
 
         const image = {
-          noComplete: require(`@/assets/mobile/Pareja_incompleta_mis_codigos_respons.png`),
+          noComplete: require(`../../assets/mobile/Pareja_incompleta_mis_codigos_respons.png`),
           primeCompu: require(`@/assets/mobile/Premio_compus_mis_codigos_respons.png`),
-          tacoSaltin: require("@/assets/web/Taco_Saltin.png"),
-          tacoDucales: require("@/assets/web/Taco_Ducales.png"),
+          tacoSaltin: require("@/assets/mobile/Taco_Saltin.png"),
+          tacoDucales: require("@/assets/mobile/Taco_Ducales.png"),
           tacoSaltinDisabled: require("@/assets/mobile/taco_faltante_saltin-respons.png"),
           tacoDucalesDisabled: require("@/assets/mobile/taco_faltante_ducales_respons.png"),
           bonus: require("@/assets/mobile/Premio_tarjetas_mis_codigos_respons.png"),
@@ -97,6 +97,9 @@ export default {
           none: `¡SIGUE INTENTANDO!`,
           reversed: '¡CANCELADO!'
         };
+
+
+	index === 0 && console.log(item.result)
        
         return {
           cant: index + 1,
@@ -130,7 +133,6 @@ export default {
             : image["tacoDucalesDisabled"],
         };
       });
-      console.log(newData);
       return newData;
     },
   },

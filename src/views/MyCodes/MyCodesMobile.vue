@@ -21,7 +21,7 @@
 
       <div class="myCodesMobile__content">
         <div
-          v-for="(item, index) in tableData" :key="index" class="myCodesMobile__content-items myCodesMobile__boxItem" @click="onClickElement">
+          v-for="(item, index) in tableData" :key="index" class="myCodesMobile__content-items myCodesMobile__boxItem" @click="onClickElement(item)">
           <div class="myCodesMobile__content-items-header">
             <span class="myCodesMobile__content-items-header-index">{{
               index + 1
@@ -32,8 +32,7 @@
           </div>
           <div class="myCodesMobile__content-items-content">
             <img
-              class="myCodesMobile__content-items-content-image"
-              :src="item.image"
+              class="myCodesMobile__content-items-content-image" :src="item.image"
               alt="celular"
             />
             <div class="myCodesMobile__content-items-content-action">
@@ -92,7 +91,7 @@
             <img
               class="myCodesMobile__content-modal-content-item-img"
               :src="actualItem.ducalesTacoImage"
-              alt="Taco Saltin"
+              :alt="'Taco Ducales'"
             />
             <div class="myCodesMobile__content-modal-content-item-text">
               <p class="myCodesMobile__content-modal-content-item-text-one">
@@ -312,6 +311,12 @@ export default {
       height: 160px;
       margin-top: -80px;
     }
+
+    @include xs() {
+      margin-bottom: -15px; 
+      height: 150px;
+
+    }
   }
   &__close-container {
     display: flex;
@@ -332,6 +337,10 @@ export default {
     &-title {
       font-size: 17px;
       color: #253e87;
+      
+      @include xs() {
+	margin-bottom: -10px;
+      }
     }
 
     &-content {
