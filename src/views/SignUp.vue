@@ -325,7 +325,7 @@ export default {
         this.user.email = this.user.email.trim();
       }
       let errors = {};
-      const emailReg = /^[a-zA-Z0-9_\-\.]{5,20}@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
+      const emailReg = /^[a-zA-Z0-9_\-\.]{5,30}@[A-Z0-9.-]+\.[A-Z]{2,4}$/i;
       const idReq = /^([1-9]{1}[0-9]{6,9})$/;
       const phoneReq = /^(300|301|302|304|305|310|311|312|313|314|315|316|317|318|319|320|321|322|323|324|350|351){1}[0-9]{1}[0-9]{6}$/;
       if (this.user.email && !emailReg.test(this.user.email)) {
