@@ -16,7 +16,7 @@
         <div class="termsAndConditions__scroll">
           <div class="termsAndConditions__text">
             <p>A partir del 17 de mayo y hasta el 30 de junio de 2021 o hasta agotar los dos mil
-seiscientos (2.700) premios disponibles, lo primero que ocurra, Compañía de Galletas Noel
+seiscientos (2.600) premios disponibles, lo primero que ocurra, Compañía de Galletas Noel
 S.A.S. realizará la actividad promocional que se describe a continuación, dirigida a todo el
 territorio nacional colombiano denominada “LA PROMO QUE NOS UNE”.</p>
             <p>I. Medios de difusión:</p>
@@ -74,7 +74,7 @@ tenidas en cuenta para participar.</p>
 <p>El sitio web www.lapromoquenosune.com está programado con un algoritmo que elige de
 manera aleatoria a los ganadores entre las parejas de claves válidas que no se hayan
 usado antes. Este sistema estará en funcionamiento durante la vigencia de la promoción o
-hasta agotar los dos mil seiscientos (2.700) premios disponibles, lo que ocurra primero. Si
+hasta agotar los dos mil seiscientos (2.600) premios disponibles, lo que ocurra primero. Si
 el primer premio por el cual resulta como ganador un participante de la actividad
 corresponde a tarjetas débito de consumo, computadores o celulares, ese participante ya
 no tendrá más oportunidades de participar durante el resto de la vigencia de la presente
