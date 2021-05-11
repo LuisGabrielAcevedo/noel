@@ -260,9 +260,12 @@ export default {
   &__web-route {
     cursor: pointer;
     border-radius: 25px;
-    padding: 0px 10px 0px 10px;
+    padding: 4px 10px 2px 10px;
     text-align: center;
-    line-height: 14px;
+    line-height: 15px;
+    @include mobile() {
+      padding: 2px 10px 0px 10px;
+    }
   }
 
   &__web-route-mobile {
@@ -274,7 +277,7 @@ export default {
   &__web-route-text {
     color: white;
     font-family: NexaBold;
-    font-size: 14px;
+    font-size: 15px;
     text-align: center;
   }
   &--web-route-text-selected {
