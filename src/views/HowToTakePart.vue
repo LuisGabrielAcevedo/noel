@@ -118,7 +118,7 @@ export default {
 
   &__image-content {
     margin: 10px 0;
-    height: 400px;
+    height: 520px;
 
     &-mobile {
       height: 640px;

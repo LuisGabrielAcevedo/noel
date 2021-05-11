@@ -58,7 +58,7 @@
               alt="Compu"
             />
             <p class="awards__contentImage-title awards__moveText">
-              TARJETAS DÉBITO
+              TARJETAS DÉBITO <br> DE CONSUMO
             </p>
           </div>
         </div>
