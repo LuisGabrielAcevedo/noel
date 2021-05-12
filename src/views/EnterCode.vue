@@ -191,6 +191,9 @@ export default {
       return "0.00";
     },
   },
+  mounted() {
+    this.$store.dispatch("loadBalance");
+  },
   computed: {
     mobile() {
       return this.$store.getters.mobile;
@@ -245,7 +248,6 @@ export default {
                 ducalesMsg: resp.data.ducales.message,
                 status: resp2.data || ''
               };
-              console.log(this.respStatus)
               this.dialog = true;
               this.$refs.recaptcha.reset()
               this.recaptchaCode = null;
