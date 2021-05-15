@@ -15,7 +15,7 @@
       />
     </div>
     <div class="contactUs__content">
-       <span class="contactUs__text">Para comunicarte con nosotros completa el siguiente formulario.</span>
+       <span class="contactUs__text"> Para comunicarte con nosotros escríbenos o llámanos <br/> a la línea de atención en Colombia 01 800 05 16635.</span>
        <Select
         field="topic"
         ref="topic"
